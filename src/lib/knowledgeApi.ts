@@ -46,9 +46,19 @@ export function getKnowledgeApiBaseUrl(): string {
     : '/api/proxy';
 }
 
+function buildRequestUrl(endpoint: string): string {
+  const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const base = getKnowledgeApiBaseUrl();
+
+  if (base === '/api/proxy') {
+    return `/api/proxy?path=${encodeURIComponent(normalizedEndpoint)}`;
+  }
+
+  return `${base}${normalizedEndpoint}`;
+}
+
 async function request(endpoint: string, options: RequestInit = {}): Promise<Response> {
-  const url = `${getKnowledgeApiBaseUrl()}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
-  const response = await fetch(url, options);
+  const response = await fetch(buildRequestUrl(endpoint), options);
   return response;
 }
 
