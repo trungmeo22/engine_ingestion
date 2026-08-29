@@ -1,0 +1,45 @@
+{
+  "document_id": "doc_e656c0a354ed019a",
+  "file_name": "sepsis_2026.pdf",
+  "file_path": "/app/applet/input/sepsis_2026.pdf",
+  "storage_path": "/app/applet/storage_data/raw/doc_e656c0a354ed019a/sepsis_2026.pdf",
+  "file_extension": ".pdf",
+  "mime_type": "application/pdf",
+  "file_size": 14462143,
+  "file_hash": "e656c0a354ed019a6cd65202149b43cdb2ffb0f8ccf949fb9447f778f511d2c2",
+  "title": "sepsis 2026",
+  "document_type": "unknown",
+  "organization": null,
+  "publication_year": 2026,
+  "version": null,
+  "language": "en",
+  "specialty": "infectious_disease",
+  "topics": [
+    "sepsis"
+  ],
+  "processing_status": "completed",
+  "error_message": null,
+  "retry_count": 2,
+  "created_at": "2026-08-23T13:41:46.291100+00:00",
+  "updated_at": "2026-08-23T13:45:30.894879+00:00",
+  "metadata": {
+    "title": "sepsis 2026",
+    "authors": [],
+    "organization": null,
+    "publication_year": 2026,
+    "version": null,
+    "language": "en",
+    "specialty": "infectious_disease",
+    "topics": [
+      "sepsis"
+    ],
+    "document_type": "unknown",
+    "confidence": 0.45,
+    "needs_llm_classification": true,
+    "evidence_signals": [
+      "specialty:infectious_disease(matches=1)",
+      "topic:sepsis",
+      "year:2026"
+    ]
+  }
+}

@@ -1,0 +1,277 @@
+[
+  {
+    "unit_id": "su_0001",
+    "unit_index": 0,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "4424211250d440389bdea95007987d8762f238bdd6ff9cc07bd43a2ded018e80",
+    "text": "KDIGO 2023 Clinical Practice Guideline for the Management of Diabetes in Chronic Kidney Disease. Kidney Disease: Improving Global Outcomes (KDIGO) Diabetes Work Group. Kidney International (2023) 104 (5S), S1–S127.",
+    "table_data": null,
+    "section_id": null,
+    "heading_level": null,
+    "breadcrumb": "KDIGO 2023 Clinical Practice Guideline Diabetes in CKD",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0002",
+    "unit_index": 1,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "74a7e503fd6024ec73b38bd4e0ff3753eee51e86bfdb1fcad46686ac969ac167",
+    "text": "1. Comprehensive care in patients with diabetes and CKD",
+    "table_data": null,
+    "section_id": "sec_1",
+    "heading_level": 1,
+    "breadcrumb": "1. Comprehensive care in patients with diabetes and CKD",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0003",
+    "unit_index": 2,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "46f4783a3c835c74954b404e9e98ba0ac18458f9e75cd18d57f5f0554549894e",
+    "text": "1.1. Glycemic monitoring and targets",
+    "table_data": null,
+    "section_id": "sec_1_1",
+    "heading_level": 2,
+    "breadcrumb": "1. Comprehensive care in patients with diabetes and CKD > 1.1. Glycemic monitoring and targets",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0004",
+    "unit_index": 3,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "5a30099153ffe12cd476fd9e5209fd508bb8123959440a3f648d269d8a039c8a",
+    "text": "We recommend using hemoglobin A1c (HbA1c) to monitor glycemic control in patients with diabetes and CKD (Class I, Level C).",
+    "table_data": null,
+    "section_id": "sec_1_1",
+    "heading_level": null,
+    "breadcrumb": "1. Comprehensive care in patients with diabetes and CKD > 1.1. Glycemic monitoring and targets",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0005",
+    "unit_index": 4,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "ef3e4ff4b07fd6f653c4b9dc9ca402f91a73d5bf2c9cf2526194dc7ec75dfd61",
+    "text": "1.2. Lifestyle interventions",
+    "table_data": null,
+    "section_id": "sec_1_2",
+    "heading_level": 2,
+    "breadcrumb": "1. Comprehensive care in patients with diabetes and CKD > 1.2. Lifestyle interventions",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0006",
+    "unit_index": 5,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "be551bb673365a8d7783682a03177ff29da0a4b6176d917b99d9ef9077a6785d",
+    "text": "We recommend a target dietary protein intake of 0.8 g protein/kg weight/d for patients with diabetes and CKD (Class I, Level A).",
+    "table_data": null,
+    "section_id": "sec_1_2",
+    "heading_level": null,
+    "breadcrumb": "1. Comprehensive care in patients with diabetes and CKD > 1.2. Lifestyle interventions",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0007",
+    "unit_index": 6,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "3f1dbbc3a74634c9c5361d54e6f91e7bc8b236c424fb0b70935350b6899b8681",
+    "text": "2. Pharmacological therapies in patients with T2D and CKD",
+    "table_data": null,
+    "section_id": "sec_2",
+    "heading_level": 1,
+    "breadcrumb": "2. Pharmacological therapies in patients with T2D and CKD",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0008",
+    "unit_index": 7,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "5bd0243290e2cfd322865c2fff394cebc2e014d2ffefe39cee70afe59d7d609f",
+    "text": "2.1. SGLT2 inhibitors",
+    "table_data": null,
+    "section_id": "sec_2_1",
+    "heading_level": 2,
+    "breadcrumb": "2. Pharmacological therapies in patients with T2D and CKD > 2.1. SGLT2 inhibitors",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0009",
+    "unit_index": 8,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "e4f8e1b97b91837c08f956142a35f77b1ddede7ba5694197081ade558eab6c33",
+    "text": "We recommend treating patients with T2D, CKD, and an eGFR >= 20 ml/min per 1.73 m2 with an SGLT2 inhibitor (Class I, Level A).",
+    "table_data": null,
+    "section_id": "sec_2_1",
+    "heading_level": null,
+    "breadcrumb": "2. Pharmacological therapies in patients with T2D and CKD > 2.1. SGLT2 inhibitors",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0010",
+    "unit_index": 9,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "9f5ae963006e5d366df7f418d3ae7bfd7e2b93432f1bf34e8402e2601a015d1c",
+    "text": "2.2. GLP-1 receptor agonists",
+    "table_data": null,
+    "section_id": "sec_2_2",
+    "heading_level": 2,
+    "breadcrumb": "2. Pharmacological therapies in patients with T2D and CKD > 2.2. GLP-1 receptor agonists",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0011",
+    "unit_index": 10,
+    "document_id": "doc_d89810b7a9de270b",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "8725a8ef23fb69ae02fe4f65c3c71bdb5f17dc59588b3c50e721be37ff0abda8",
+    "text": "We recommend a long-acting GLP-1 receptor agonist in patients with T2D and CKD who do not achieve individualized glycemic targets with metformin and SGLT2i (Class I, Level A).",
+    "table_data": null,
+    "section_id": "sec_2_2",
+    "heading_level": null,
+    "breadcrumb": "2. Pharmacological therapies in patients with T2D and CKD > 2.2. GLP-1 receptor agonists",
+    "provenance": {
+      "document_id": "doc_d89810b7a9de270b",
+      "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  }
+]

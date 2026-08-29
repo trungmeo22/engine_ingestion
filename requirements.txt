@@ -1,0 +1,10 @@
+# Medical Knowledge Engine Requirements
+pydantic>=2.0.0
+fastapi>=0.100.0
+uvicorn>=0.22.0
+python-multipart>=0.0.6
+pypdf>=3.0.0
+python-docx>=0.8.11
+pytest>=7.0.0
+# Optional Docling parser integration:
+# docling>=2.0.0

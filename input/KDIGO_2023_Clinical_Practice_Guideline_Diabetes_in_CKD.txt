@@ -1,0 +1,15 @@
+KDIGO 2023 Clinical Practice Guideline for the Management of Diabetes in Chronic Kidney Disease.
+Kidney Disease: Improving Global Outcomes (KDIGO) Diabetes Work Group.
+Kidney International (2023) 104 (5S), S1–S127.
+
+1. Comprehensive care in patients with diabetes and CKD
+1.1. Glycemic monitoring and targets
+We recommend using hemoglobin A1c (HbA1c) to monitor glycemic control in patients with diabetes and CKD (Class I, Level C).
+1.2. Lifestyle interventions
+We recommend a target dietary protein intake of 0.8 g protein/kg weight/d for patients with diabetes and CKD (Class I, Level A).
+
+2. Pharmacological therapies in patients with T2D and CKD
+2.1. SGLT2 inhibitors
+We recommend treating patients with T2D, CKD, and an eGFR >= 20 ml/min per 1.73 m2 with an SGLT2 inhibitor (Class I, Level A).
+2.2. GLP-1 receptor agonists
+We recommend a long-acting GLP-1 receptor agonist in patients with T2D and CKD who do not achieve individualized glycemic targets with metformin and SGLT2i (Class I, Level A).

@@ -1,0 +1,102 @@
+[
+  {
+    "unit_id": "su_0001",
+    "unit_index": 0,
+    "document_id": "doc_3c633a08740754f0",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "935581bdaf2bf7068d6a25d982dd2665ef98900d74763821fde952c14c389323",
+    "text": "ESC Guidelines for the Management of Heart Failure 2023",
+    "table_data": null,
+    "section_id": null,
+    "heading_level": null,
+    "breadcrumb": "ESC Copy",
+    "provenance": {
+      "document_id": "doc_3c633a08740754f0",
+      "file_name": "ESC_Copy.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0002",
+    "unit_index": 1,
+    "document_id": "doc_3c633a08740754f0",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "b6b95dd00bda88f2cac29e727cf785d2711f39a7355aa268b2212e96ac3d7569",
+    "text": "5. Pharmacological treatment",
+    "table_data": null,
+    "section_id": "sec_5",
+    "heading_level": 1,
+    "breadcrumb": "5. Pharmacological treatment",
+    "provenance": {
+      "document_id": "doc_3c633a08740754f0",
+      "file_name": "ESC_Copy.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0003",
+    "unit_index": 2,
+    "document_id": "doc_3c633a08740754f0",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "be621cf6e2c9a6694ca763e13a2360f5350abdfd4f6fc92ff0c21691bbed0b18",
+    "text": "5.1. SGLT2 inhibitors",
+    "table_data": null,
+    "section_id": "sec_5_1",
+    "heading_level": 2,
+    "breadcrumb": "5. Pharmacological treatment > 5.1. SGLT2 inhibitors",
+    "provenance": {
+      "document_id": "doc_3c633a08740754f0",
+      "file_name": "ESC_Copy.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0004",
+    "unit_index": 3,
+    "document_id": "doc_3c633a08740754f0",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "d1da0bba6f5bba0db3db6d564c831ef71975e6cec5377807f5e7e21963b04c8b",
+    "text": "Dapagliflozin 10mg is recommended (Class I, Level A).",
+    "table_data": null,
+    "section_id": "sec_5_1",
+    "heading_level": null,
+    "breadcrumb": "5. Pharmacological treatment > 5.1. SGLT2 inhibitors",
+    "provenance": {
+      "document_id": "doc_3c633a08740754f0",
+      "file_name": "ESC_Copy.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  }
+]

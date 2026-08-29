@@ -1,0 +1,27 @@
+[
+  {
+    "unit_id": "su_0001",
+    "unit_index": 0,
+    "document_id": "doc_d71fadf1dd28bf5d",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "0d53fc24bcef23eaa4338bc227c170d4f9a025e7512fa3e870fb46a7aaac10b4",
+    "text": "Randomized controlled trial of dapagliflozin in patients with heart failure. Results: SGLT2 inhibitors reduced cardiovascular death.",
+    "table_data": null,
+    "section_id": "sec_001",
+    "heading_level": null,
+    "breadcrumb": "DAPA HF Randomized Trial",
+    "provenance": {
+      "document_id": "doc_d71fadf1dd28bf5d",
+      "file_name": "DAPA_HF_Randomized_Trial.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "section_id": "sec_1",
+    "document_id": "doc_d89810b7a9de270b",
+    "parent_section_id": null,
+    "title": "1. Comprehensive care in patients with diabetes and CKD",
+    "level": 1,
+    "order_index": 0,
+    "numbering_path": "1",
+    "breadcrumb": "1. Comprehensive care in patients with diabetes and CKD"
+  },
+  {
+    "section_id": "sec_1_1",
+    "document_id": "doc_d89810b7a9de270b",
+    "parent_section_id": "sec_1",
+    "title": "1.1. Glycemic monitoring and targets",
+    "level": 2,
+    "order_index": 1,
+    "numbering_path": "1.1",
+    "breadcrumb": "1. Comprehensive care in patients with diabetes and CKD > 1.1. Glycemic monitoring and targets"
+  },
+  {
+    "section_id": "sec_1_2",
+    "document_id": "doc_d89810b7a9de270b",
+    "parent_section_id": "sec_1",
+    "title": "1.2. Lifestyle interventions",
+    "level": 2,
+    "order_index": 2,
+    "numbering_path": "1.2",
+    "breadcrumb": "1. Comprehensive care in patients with diabetes and CKD > 1.2. Lifestyle interventions"
+  },
+  {
+    "section_id": "sec_2",
+    "document_id": "doc_d89810b7a9de270b",
+    "parent_section_id": null,
+    "title": "2. Pharmacological therapies in patients with T2D and CKD",
+    "level": 1,
+    "order_index": 3,
+    "numbering_path": "2",
+    "breadcrumb": "2. Pharmacological therapies in patients with T2D and CKD"
+  },
+  {
+    "section_id": "sec_2_1",
+    "document_id": "doc_d89810b7a9de270b",
+    "parent_section_id": "sec_2",
+    "title": "2.1. SGLT2 inhibitors",
+    "level": 2,
+    "order_index": 4,
+    "numbering_path": "2.1",
+    "breadcrumb": "2. Pharmacological therapies in patients with T2D and CKD > 2.1. SGLT2 inhibitors"
+  },
+  {
+    "section_id": "sec_2_2",
+    "document_id": "doc_d89810b7a9de270b",
+    "parent_section_id": "sec_2",
+    "title": "2.2. GLP-1 receptor agonists",
+    "level": 2,
+    "order_index": 5,
+    "numbering_path": "2.2",
+    "breadcrumb": "2. Pharmacological therapies in patients with T2D and CKD > 2.2. GLP-1 receptor agonists"
+  }
+]

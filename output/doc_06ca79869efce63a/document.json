@@ -1,0 +1,47 @@
+{
+  "document_id": "doc_06ca79869efce63a",
+  "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+  "file_path": "/app/applet/input/ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+  "storage_path": "/app/applet/storage_data/raw/doc_06ca79869efce63a/ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+  "file_extension": ".txt",
+  "mime_type": "text/plain",
+  "file_size": 2892,
+  "file_hash": "06ca79869efce63a5754fb24ee37746d491f1401c0c0a663c41e67b95f65b439",
+  "title": "ESC Guidelines for the Management of Heart Failure 2023",
+  "document_type": "guideline",
+  "organization": "ESC",
+  "publication_year": 2023,
+  "version": null,
+  "language": "en",
+  "specialty": "cardiology",
+  "topics": [
+    "heart failure"
+  ],
+  "processing_status": "discovered",
+  "error_message": null,
+  "retry_count": 0,
+  "created_at": "2026-08-23T12:11:45.968412+00:00",
+  "updated_at": "2026-08-23T12:11:45.968412+00:00",
+  "metadata": {
+    "title": "ESC Guidelines for the Management of Heart Failure 2023",
+    "authors": [],
+    "organization": "ESC",
+    "publication_year": 2023,
+    "version": null,
+    "language": "en",
+    "specialty": "cardiology",
+    "topics": [
+      "heart failure"
+    ],
+    "document_type": "guideline",
+    "confidence": 0.95,
+    "needs_llm_classification": false,
+    "evidence_signals": [
+      "keyword:guideline",
+      "org:ESC",
+      "specialty:cardiology(matches=1)",
+      "topic:heart failure",
+      "year:2023"
+    ]
+  }
+}

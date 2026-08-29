@@ -1,0 +1,232 @@
+{
+  "job_ef2b96b63f85": {
+    "job_id": "job_ef2b96b63f85",
+    "document_id": "doc_d71fadf1dd28bf5d",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:10:11.770708+00:00",
+    "finished_at": "2026-08-23T12:10:11.782543+00:00",
+    "error_message": null
+  },
+  "job_e0273c754176": {
+    "job_id": "job_e0273c754176",
+    "document_id": "doc_3c633a08740754f0",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:10:11.784973+00:00",
+    "finished_at": "2026-08-23T12:10:11.789416+00:00",
+    "error_message": null
+  },
+  "job_1ae8e79e0d65": {
+    "job_id": "job_1ae8e79e0d65",
+    "document_id": "doc_8b3e33289dbc42eb",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 2,
+    "started_at": "2026-08-23T12:10:11.796072+00:00",
+    "finished_at": "2026-08-23T12:10:11.799957+00:00",
+    "error_message": null
+  },
+  "job_c733e41ce8a3": {
+    "job_id": "job_c733e41ce8a3",
+    "document_id": "doc_d71fadf1dd28bf5d",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:11:27.309318+00:00",
+    "finished_at": "2026-08-23T12:11:27.320690+00:00",
+    "error_message": null
+  },
+  "job_2b6290f538ad": {
+    "job_id": "job_2b6290f538ad",
+    "document_id": "doc_3c633a08740754f0",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:11:27.323125+00:00",
+    "finished_at": "2026-08-23T12:11:27.327762+00:00",
+    "error_message": null
+  },
+  "job_bd122c36c049": {
+    "job_id": "job_bd122c36c049",
+    "document_id": "doc_8b3e33289dbc42eb",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 2,
+    "started_at": "2026-08-23T12:11:27.333852+00:00",
+    "finished_at": "2026-08-23T12:11:27.338051+00:00",
+    "error_message": null
+  },
+  "job_dce6a5abb1e9": {
+    "job_id": "job_dce6a5abb1e9",
+    "document_id": "doc_27d02c37fced9e21",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:11:45.953442+00:00",
+    "finished_at": "2026-08-23T12:11:45.967161+00:00",
+    "error_message": null
+  },
+  "job_6f09865d225a": {
+    "job_id": "job_6f09865d225a",
+    "document_id": "doc_06ca79869efce63a",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:11:45.970008+00:00",
+    "finished_at": "2026-08-23T12:11:45.978191+00:00",
+    "error_message": null
+  },
+  "job_a2321c048c8a": {
+    "job_id": "job_a2321c048c8a",
+    "document_id": "doc_d89810b7a9de270b",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:11:45.981456+00:00",
+    "finished_at": "2026-08-23T12:11:45.988225+00:00",
+    "error_message": null
+  },
+  "job_d3d7d190fb5e": {
+    "job_id": "job_d3d7d190fb5e",
+    "document_id": "doc_d71fadf1dd28bf5d",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:12:14.059862+00:00",
+    "finished_at": "2026-08-23T12:12:14.071337+00:00",
+    "error_message": null
+  },
+  "job_3b048611265f": {
+    "job_id": "job_3b048611265f",
+    "document_id": "doc_3c633a08740754f0",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T12:12:14.074014+00:00",
+    "finished_at": "2026-08-23T12:12:14.078817+00:00",
+    "error_message": null
+  },
+  "job_893640da3fdc": {
+    "job_id": "job_893640da3fdc",
+    "document_id": "doc_8b3e33289dbc42eb",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 2,
+    "started_at": "2026-08-23T12:12:14.084854+00:00",
+    "finished_at": "2026-08-23T12:12:14.089110+00:00",
+    "error_message": null
+  },
+  "job_116bf8cd7d6a": {
+    "job_id": "job_116bf8cd7d6a",
+    "document_id": "doc_e656c0a354ed019a",
+    "job_type": "parse",
+    "status": "failed",
+    "attempt": 1,
+    "started_at": "2026-08-23T13:41:46.293857+00:00",
+    "finished_at": "2026-08-23T13:42:15.702656+00:00",
+    "error_message": "Validation failed: Duplicate section_id detected: 'sec_1'; Duplicate section_id detected: 'sec_3'; Duplicate section_id detected: 'sec_95'"
+  },
+  "job_9a8fae4df5a9": {
+    "job_id": "job_9a8fae4df5a9",
+    "document_id": "doc_e656c0a354ed019a",
+    "job_type": "parse",
+    "status": "failed",
+    "attempt": 2,
+    "started_at": "2026-08-23T13:44:57.182738+00:00",
+    "finished_at": "2026-08-23T13:45:30.895900+00:00",
+    "error_message": "Validation failed: Duplicate section_id detected: 'sec_1'; Duplicate section_id detected: 'sec_3'; Duplicate section_id detected: 'sec_95'"
+  },
+  "job_18557f564c23": {
+    "job_id": "job_18557f564c23",
+    "document_id": "doc_c97a64b8ef7724f5",
+    "job_type": "parse",
+    "status": "failed",
+    "attempt": 1,
+    "started_at": "2026-08-23T13:45:21.682816+00:00",
+    "finished_at": "2026-08-23T13:46:06.045117+00:00",
+    "error_message": "Validation failed: Duplicate section_id detected: 'sec_5'; Duplicate section_id detected: 'sec_6'; Duplicate section_id detected: 'sec_5'"
+  },
+  "job_df52bed2e441": {
+    "job_id": "job_df52bed2e441",
+    "document_id": "doc_d71fadf1dd28bf5d",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T13:47:15.047679+00:00",
+    "finished_at": "2026-08-23T13:47:15.058840+00:00",
+    "error_message": null
+  },
+  "job_80b9cef45fb0": {
+    "job_id": "job_80b9cef45fb0",
+    "document_id": "doc_3c633a08740754f0",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T13:47:15.062800+00:00",
+    "finished_at": "2026-08-23T13:47:15.067084+00:00",
+    "error_message": null
+  },
+  "job_f631551ada73": {
+    "job_id": "job_f631551ada73",
+    "document_id": "doc_8b3e33289dbc42eb",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 2,
+    "started_at": "2026-08-23T13:47:15.075003+00:00",
+    "finished_at": "2026-08-23T13:47:15.078635+00:00",
+    "error_message": null
+  },
+  "job_de884ac8b262": {
+    "job_id": "job_de884ac8b262",
+    "document_id": "doc_d71fadf1dd28bf5d",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T13:49:35.228874+00:00",
+    "finished_at": "2026-08-23T13:49:35.240620+00:00",
+    "error_message": null
+  },
+  "job_c1179e326a1a": {
+    "job_id": "job_c1179e326a1a",
+    "document_id": "doc_3c633a08740754f0",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 1,
+    "started_at": "2026-08-23T13:49:35.245419+00:00",
+    "finished_at": "2026-08-23T13:49:35.249918+00:00",
+    "error_message": null
+  },
+  "job_3968a12b591d": {
+    "job_id": "job_3968a12b591d",
+    "document_id": "doc_8b3e33289dbc42eb",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 2,
+    "started_at": "2026-08-23T13:49:35.257649+00:00",
+    "finished_at": "2026-08-23T13:49:35.261469+00:00",
+    "error_message": null
+  },
+  "job_103b029ec3ae": {
+    "job_id": "job_103b029ec3ae",
+    "document_id": "doc_e656c0a354ed019a",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 3,
+    "started_at": "2026-08-23T13:49:45.162490+00:00",
+    "finished_at": "2026-08-23T13:50:13.057991+00:00",
+    "error_message": null
+  },
+  "job_841b934a0648": {
+    "job_id": "job_841b934a0648",
+    "document_id": "doc_c97a64b8ef7724f5",
+    "job_type": "parse",
+    "status": "completed",
+    "attempt": 2,
+    "started_at": "2026-08-23T13:50:13.205299+00:00",
+    "finished_at": "2026-08-23T13:50:53.498163+00:00",
+    "error_message": null
+  }
+}

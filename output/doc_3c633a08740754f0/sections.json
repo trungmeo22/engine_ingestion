@@ -1,0 +1,22 @@
+[
+  {
+    "section_id": "sec_5",
+    "document_id": "doc_3c633a08740754f0",
+    "parent_section_id": null,
+    "title": "5. Pharmacological treatment",
+    "level": 1,
+    "order_index": 0,
+    "numbering_path": "5",
+    "breadcrumb": "5. Pharmacological treatment"
+  },
+  {
+    "section_id": "sec_5_1",
+    "document_id": "doc_3c633a08740754f0",
+    "parent_section_id": "sec_5",
+    "title": "5.1. SGLT2 inhibitors",
+    "level": 2,
+    "order_index": 1,
+    "numbering_path": "5.1",
+    "breadcrumb": "5. Pharmacological treatment > 5.1. SGLT2 inhibitors"
+  }
+]

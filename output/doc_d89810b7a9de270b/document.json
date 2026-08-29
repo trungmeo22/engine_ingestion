@@ -1,0 +1,47 @@
+{
+  "document_id": "doc_d89810b7a9de270b",
+  "file_name": "KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+  "file_path": "/app/applet/input/KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+  "storage_path": "/app/applet/storage_data/raw/doc_d89810b7a9de270b/KDIGO_2023_Clinical_Practice_Guideline_Diabetes_in_CKD.txt",
+  "file_extension": ".txt",
+  "mime_type": "text/plain",
+  "file_size": 1006,
+  "file_hash": "d89810b7a9de270b5b1dde3d0b95407f78365127a5c7016572dd0dbc9719703d",
+  "title": "KDIGO 2023 Clinical Practice Guideline Diabetes in CKD",
+  "document_type": "guideline",
+  "organization": "KDIGO",
+  "publication_year": 2023,
+  "version": null,
+  "language": "en",
+  "specialty": "endocrinology",
+  "topics": [
+    "chronic kidney disease"
+  ],
+  "processing_status": "discovered",
+  "error_message": null,
+  "retry_count": 0,
+  "created_at": "2026-08-23T12:11:45.979694+00:00",
+  "updated_at": "2026-08-23T12:11:45.979694+00:00",
+  "metadata": {
+    "title": "KDIGO 2023 Clinical Practice Guideline Diabetes in CKD",
+    "authors": [],
+    "organization": "KDIGO",
+    "publication_year": 2023,
+    "version": null,
+    "language": "en",
+    "specialty": "endocrinology",
+    "topics": [
+      "chronic kidney disease"
+    ],
+    "document_type": "guideline",
+    "confidence": 0.95,
+    "needs_llm_classification": false,
+    "evidence_signals": [
+      "keyword:guideline",
+      "org:KDIGO",
+      "specialty:endocrinology(matches=1)",
+      "topic:chronic kidney disease",
+      "year:2023"
+    ]
+  }
+}

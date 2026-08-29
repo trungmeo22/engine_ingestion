@@ -1,0 +1,132 @@
+[
+  {
+    "section_id": "sec_2023",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": null,
+    "title": "2023. ESC Guidelines for the management of acute and chronic heart failure.",
+    "level": 1,
+    "order_index": 0,
+    "numbering_path": "2023",
+    "breadcrumb": "2023. ESC Guidelines for the management of acute and chronic heart failure."
+  },
+  {
+    "section_id": "sec_1",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": null,
+    "title": "1. Preamble and Introduction",
+    "level": 1,
+    "order_index": 1,
+    "numbering_path": "1",
+    "breadcrumb": "1. Preamble and Introduction"
+  },
+  {
+    "section_id": "sec_2",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": null,
+    "title": "2. Definition and classification of heart failure",
+    "level": 1,
+    "order_index": 2,
+    "numbering_path": "2",
+    "breadcrumb": "2. Definition and classification of heart failure"
+  },
+  {
+    "section_id": "sec_3",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": null,
+    "title": "3. Diagnostic pathway for patients with suspected heart failure",
+    "level": 1,
+    "order_index": 3,
+    "numbering_path": "3",
+    "breadcrumb": "3. Diagnostic pathway for patients with suspected heart failure"
+  },
+  {
+    "section_id": "sec_3_1",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": "sec_3",
+    "title": "3.1. Diagnostic tests",
+    "level": 2,
+    "order_index": 4,
+    "numbering_path": "3.1",
+    "breadcrumb": "3. Diagnostic pathway for patients with suspected heart failure > 3.1. Diagnostic tests"
+  },
+  {
+    "section_id": "sec_3_2",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": "sec_3",
+    "title": "3.2. Echocardiography",
+    "level": 2,
+    "order_index": 5,
+    "numbering_path": "3.2",
+    "breadcrumb": "3. Diagnostic pathway for patients with suspected heart failure > 3.2. Echocardiography"
+  },
+  {
+    "section_id": "sec_4",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": null,
+    "title": "4. Pharmacological treatments for heart failure with reduced ejection fraction",
+    "level": 1,
+    "order_index": 6,
+    "numbering_path": "4",
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction"
+  },
+  {
+    "section_id": "sec_4_1",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": "sec_4",
+    "title": "4.1. Disease-modifying drug therapy",
+    "level": 2,
+    "order_index": 7,
+    "numbering_path": "4.1",
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy"
+  },
+  {
+    "section_id": "sec_4_1_1",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": "sec_4_1",
+    "title": "4.1.1. Sodium-glucose co-transporter 2 inhibitors",
+    "level": 3,
+    "order_index": 8,
+    "numbering_path": "4.1.1",
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.1. Sodium-glucose co-transporter 2 inhibitors"
+  },
+  {
+    "section_id": "sec_4_1_2",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": "sec_4_1",
+    "title": "4.1.2. Mineralocorticoid receptor antagonists",
+    "level": 3,
+    "order_index": 9,
+    "numbering_path": "4.1.2",
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.2. Mineralocorticoid receptor antagonists"
+  },
+  {
+    "section_id": "sec_4_1_3",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": "sec_4_1",
+    "title": "4.1.3. Beta-blockers",
+    "level": 3,
+    "order_index": 10,
+    "numbering_path": "4.1.3",
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.3. Beta-blockers"
+  },
+  {
+    "section_id": "sec_5",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": null,
+    "title": "5. Device therapy and surgical interventions",
+    "level": 1,
+    "order_index": 11,
+    "numbering_path": "5",
+    "breadcrumb": "5. Device therapy and surgical interventions"
+  },
+  {
+    "section_id": "sec_5_1",
+    "document_id": "doc_06ca79869efce63a",
+    "parent_section_id": "sec_5",
+    "title": "5.1. Implantable cardioverter-defibrillator",
+    "level": 2,
+    "order_index": 12,
+    "numbering_path": "5.1",
+    "breadcrumb": "5. Device therapy and surgical interventions > 5.1. Implantable cardioverter-defibrillator"
+  }
+]

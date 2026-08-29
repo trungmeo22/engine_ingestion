@@ -1,0 +1,42 @@
+[
+  {
+    "section_id": "sec_1",
+    "document_id": "doc_27d02c37fced9e21",
+    "parent_section_id": null,
+    "title": "1. Background",
+    "level": 1,
+    "order_index": 0,
+    "numbering_path": "1",
+    "breadcrumb": "1. Background"
+  },
+  {
+    "section_id": "sec_2",
+    "document_id": "doc_27d02c37fced9e21",
+    "parent_section_id": null,
+    "title": "2. Methods",
+    "level": 1,
+    "order_index": 1,
+    "numbering_path": "2",
+    "breadcrumb": "2. Methods"
+  },
+  {
+    "section_id": "sec_3",
+    "document_id": "doc_27d02c37fced9e21",
+    "parent_section_id": null,
+    "title": "3. Results",
+    "level": 1,
+    "order_index": 2,
+    "numbering_path": "3",
+    "breadcrumb": "3. Results"
+  },
+  {
+    "section_id": "sec_4",
+    "document_id": "doc_27d02c37fced9e21",
+    "parent_section_id": null,
+    "title": "4. Conclusions",
+    "level": 1,
+    "order_index": 3,
+    "numbering_path": "4",
+    "breadcrumb": "4. Conclusions"
+  }
+]

@@ -1,0 +1,39 @@
+2023 ESC Guidelines for the management of acute and chronic heart failure.
+Developed by the task force for the diagnosis and treatment of acute and chronic heart failure of the European Society of Cardiology (ESC).
+Authors/Task Force Members: Theresa A. McDonagh, Marco Metra, Marianna Adamo, Roy S. Gardner, et al.
+European Heart Journal (2023) 44, 3627–3739.
+
+1. Preamble and Introduction
+Guidelines summarize and evaluate available evidence with the aim of assisting health professionals in proposing the best management strategies for an individual patient with a given condition.
+
+2. Definition and classification of heart failure
+Heart failure is not a single pathological diagnosis, but a clinical syndrome consisting of cardinal symptoms (e.g. breathlessness, ankle swelling, and fatigue) that may be accompanied by signs (e.g. elevated jugular venous pressure, pulmonary crackles, and peripheral edema).
+
+3. Diagnostic pathway for patients with suspected heart failure
+3.1. Diagnostic tests
+Measurement of plasma natriuretic peptide level (BNP or NT-proBNP) is recommended as an initial diagnostic test (Class I, Level B).
+3.2. Echocardiography
+Transthoracic echocardiography is recommended for the assessment of myocardial structure and function, including measurement of LVEF (Class I, Level C).
+
+4. Pharmacological treatments for heart failure with reduced ejection fraction
+4.1. Disease-modifying drug therapy
+The quadruple therapy consisting of ACE-I/ARNI, beta-blocker, MRA, and SGLT2 inhibitor is recommended as foundational therapy for all patients with HFrEF.
+4.1.1. Sodium-glucose co-transporter 2 inhibitors
+Dapagliflozin or empagliflozin is recommended for patients with HFrEF to reduce the risk of HF hospitalization and cardiovascular death (Class I, Level A).
+4.1.2. Mineralocorticoid receptor antagonists
+Eplerenone or spironolactone is recommended for all patients with HFrEF to reduce mortality and the risk of HF hospitalization (Class I, Level A).
+4.1.3. Beta-blockers
+Bisoprolol, carvedilol, metoprolol succinate, or nebivolol is recommended for patients with stable HFrEF (Class I, Level A).
+
+5. Device therapy and surgical interventions
+5.1. Implantable cardioverter-defibrillator
+An ICD is recommended to reduce the risk of sudden death in patients with symptomatic HF (NYHA Class II-III) and LVEF <= 35% despite >= 3 months of OMT (Class I, Level A).
+
+Figure 1: Diagnostic algorithm and treatment pathway for HFrEF patients.
+
+Table 1: Starting and target dosages of disease-modifying drugs in HFrEF.
+| Drug Class | Agent | Starting Dose | Target Dose |
+| SGLT2 inhibitor | Dapagliflozin | 10 mg once daily | 10 mg once daily |
+| SGLT2 inhibitor | Empagliflozin | 10 mg once daily | 10 mg once daily |
+| ARNI | Sacubitril/valsartan | 49/51 mg twice daily | 97/103 mg twice daily |
+| Beta-blocker | Carvedilol | 3.125 mg twice daily | 25-50 mg twice daily |

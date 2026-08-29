@@ -1,0 +1,52 @@
+[
+  {
+    "unit_id": "su_0001",
+    "unit_index": 0,
+    "document_id": "doc_8b3e33289dbc42eb",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "94af2c3051f7ddcba627c0b515568f47d7635337583844bdcb849fa2d4d520e1",
+    "text": "5. Guidelines",
+    "table_data": null,
+    "section_id": "sec_5",
+    "heading_level": 1,
+    "breadcrumb": "5. Guidelines",
+    "provenance": {
+      "document_id": "doc_8b3e33289dbc42eb",
+      "file_name": "retry_sample.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0002",
+    "unit_index": 1,
+    "document_id": "doc_8b3e33289dbc42eb",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "75111bccaa2c07eb21ea60042859fa3dc7891345fbe986f2fa3869daa8a972d9",
+    "text": "Content here with Class I evidence.",
+    "table_data": null,
+    "section_id": "sec_5",
+    "heading_level": null,
+    "breadcrumb": "5. Guidelines",
+    "provenance": {
+      "document_id": "doc_8b3e33289dbc42eb",
+      "file_name": "retry_sample.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  }
+]

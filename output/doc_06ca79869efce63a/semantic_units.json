@@ -1,0 +1,627 @@
+[
+  {
+    "unit_id": "su_0001",
+    "unit_index": 0,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "3834b09cba58b638e35efb5763c767b503eba862c52486c2fd687821a1f7d15a",
+    "text": "2023 ESC Guidelines for the management of acute and chronic heart failure.",
+    "table_data": null,
+    "section_id": "sec_2023",
+    "heading_level": 1,
+    "breadcrumb": "2023. ESC Guidelines for the management of acute and chronic heart failure.",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0002",
+    "unit_index": 1,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "2bc630ae7e0877b721bbe2cbf5723cb4f9bca248dee14d90f09874da2c3d0f5e",
+    "text": "Developed by the task force for the diagnosis and treatment of acute and chronic heart failure of the European Society of Cardiology (ESC). Authors/Task Force Members: Theresa A. McDonagh, Marco Metra, Marianna Adamo, Roy S. Gardner, et al. European Heart Journal (2023) 44, 3627–3739.",
+    "table_data": null,
+    "section_id": "sec_2023",
+    "heading_level": null,
+    "breadcrumb": "2023. ESC Guidelines for the management of acute and chronic heart failure.",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0003",
+    "unit_index": 2,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "1a7b0807480acac2576eb4b6ae8dcc103b97144a9254c2dcbc30b914208082a1",
+    "text": "1. Preamble and Introduction",
+    "table_data": null,
+    "section_id": "sec_1",
+    "heading_level": 1,
+    "breadcrumb": "1. Preamble and Introduction",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0004",
+    "unit_index": 3,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "df0d3230fef6757554ab7c684c3bc3dadec77f6d4e045b1d36c8e4fd4d053b13",
+    "text": "Guidelines summarize and evaluate available evidence with the aim of assisting health professionals in proposing the best management strategies for an individual patient with a given condition.",
+    "table_data": null,
+    "section_id": "sec_1",
+    "heading_level": null,
+    "breadcrumb": "1. Preamble and Introduction",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0005",
+    "unit_index": 4,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "05ea3a50fad6c17478abe3a43707d1ddc84b2665f3012090d6e9257c89ac232b",
+    "text": "2. Definition and classification of heart failure",
+    "table_data": null,
+    "section_id": "sec_2",
+    "heading_level": 1,
+    "breadcrumb": "2. Definition and classification of heart failure",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0006",
+    "unit_index": 5,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "9c068c411881f8a08a8b69b2165e728f87722d174a4082a559df67a11fbec78b",
+    "text": "Heart failure is not a single pathological diagnosis, but a clinical syndrome consisting of cardinal symptoms (e.g. breathlessness, ankle swelling, and fatigue) that may be accompanied by signs (e.g. elevated jugular venous pressure, pulmonary crackles, and peripheral edema).",
+    "table_data": null,
+    "section_id": "sec_2",
+    "heading_level": null,
+    "breadcrumb": "2. Definition and classification of heart failure",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0007",
+    "unit_index": 6,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "f5817bd4b1b0d515f433b888ba08511800445468588b5641cac68d0afff431dd",
+    "text": "3. Diagnostic pathway for patients with suspected heart failure",
+    "table_data": null,
+    "section_id": "sec_3",
+    "heading_level": 1,
+    "breadcrumb": "3. Diagnostic pathway for patients with suspected heart failure",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0008",
+    "unit_index": 7,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "13ee4cbd3e95b50702afbefdc74ce5dc566b866f7bb0f44d04a4df99dc684d99",
+    "text": "3.1. Diagnostic tests",
+    "table_data": null,
+    "section_id": "sec_3_1",
+    "heading_level": 2,
+    "breadcrumb": "3. Diagnostic pathway for patients with suspected heart failure > 3.1. Diagnostic tests",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0009",
+    "unit_index": 8,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "8fcc1b3d38ace027583b8577cf44ad44b56ad638693a96210fc5ce5aa8dbd394",
+    "text": "Measurement of plasma natriuretic peptide level (BNP or NT-proBNP) is recommended as an initial diagnostic test (Class I, Level B).",
+    "table_data": null,
+    "section_id": "sec_3_1",
+    "heading_level": null,
+    "breadcrumb": "3. Diagnostic pathway for patients with suspected heart failure > 3.1. Diagnostic tests",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0010",
+    "unit_index": 9,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "374d34970d12605d8133994f0878cc07e6910836fba0518179c56266976e6f93",
+    "text": "3.2. Echocardiography",
+    "table_data": null,
+    "section_id": "sec_3_2",
+    "heading_level": 2,
+    "breadcrumb": "3. Diagnostic pathway for patients with suspected heart failure > 3.2. Echocardiography",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0011",
+    "unit_index": 10,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "e999fa6e95e2ddb341cbc81abfc64aabd2400bb1e9fa034d98ae30af9fd43c13",
+    "text": "Transthoracic echocardiography is recommended for the assessment of myocardial structure and function, including measurement of LVEF (Class I, Level C).",
+    "table_data": null,
+    "section_id": "sec_3_2",
+    "heading_level": null,
+    "breadcrumb": "3. Diagnostic pathway for patients with suspected heart failure > 3.2. Echocardiography",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0012",
+    "unit_index": 11,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "4563e513133710110ba60c0ee70351e4c5cb76df1c6da5d0b386e1aa36b85281",
+    "text": "4. Pharmacological treatments for heart failure with reduced ejection fraction",
+    "table_data": null,
+    "section_id": "sec_4",
+    "heading_level": 1,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0013",
+    "unit_index": 12,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "56d1fb0e8ff56e8f3841910464f2daf60dbbdfe2ab0124e7f9644358592349d1",
+    "text": "4.1. Disease-modifying drug therapy",
+    "table_data": null,
+    "section_id": "sec_4_1",
+    "heading_level": 2,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0014",
+    "unit_index": 13,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "9ab78266d7c13b6bb7b2471ff7b40eaaa786ecc06c799a43ca9504cc616a1064",
+    "text": "The quadruple therapy consisting of ACE-I/ARNI, beta-blocker, MRA, and SGLT2 inhibitor is recommended as foundational therapy for all patients with HFrEF.",
+    "table_data": null,
+    "section_id": "sec_4_1",
+    "heading_level": null,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0015",
+    "unit_index": 14,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "e3e59eef4ee6a9b0320a8d42ed105f5a797cee7179ef992b869d1341aa6eb981",
+    "text": "4.1.1. Sodium-glucose co-transporter 2 inhibitors",
+    "table_data": null,
+    "section_id": "sec_4_1_1",
+    "heading_level": 3,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.1. Sodium-glucose co-transporter 2 inhibitors",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0016",
+    "unit_index": 15,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "1d7acfd509ef08903e4272046c46d0f8c7e31b9639e2ebcdaddb996d002ac6bb",
+    "text": "Dapagliflozin or empagliflozin is recommended for patients with HFrEF to reduce the risk of HF hospitalization and cardiovascular death (Class I, Level A).",
+    "table_data": null,
+    "section_id": "sec_4_1_1",
+    "heading_level": null,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.1. Sodium-glucose co-transporter 2 inhibitors",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0017",
+    "unit_index": 16,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "07f511c0632a0f1cd724cf0643401d6e4b0148fec8d01865ef0c1fdceb1bd526",
+    "text": "4.1.2. Mineralocorticoid receptor antagonists",
+    "table_data": null,
+    "section_id": "sec_4_1_2",
+    "heading_level": 3,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.2. Mineralocorticoid receptor antagonists",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0018",
+    "unit_index": 17,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "ed163b7bcbc10e9bb4500455a0e57b223f7668c95156e4fbad725de07ba09f99",
+    "text": "Eplerenone or spironolactone is recommended for all patients with HFrEF to reduce mortality and the risk of HF hospitalization (Class I, Level A).",
+    "table_data": null,
+    "section_id": "sec_4_1_2",
+    "heading_level": null,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.2. Mineralocorticoid receptor antagonists",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0019",
+    "unit_index": 18,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "14e7e7f9c2484919455e27b5d46971389142c1a913941c5aad1f8c10c9ce9921",
+    "text": "4.1.3. Beta-blockers",
+    "table_data": null,
+    "section_id": "sec_4_1_3",
+    "heading_level": 3,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.3. Beta-blockers",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0020",
+    "unit_index": 19,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "787daf7a0a8514a64bf35316a3272f2030630ffc43050419fd46287ccf74a79b",
+    "text": "Bisoprolol, carvedilol, metoprolol succinate, or nebivolol is recommended for patients with stable HFrEF (Class I, Level A).",
+    "table_data": null,
+    "section_id": "sec_4_1_3",
+    "heading_level": null,
+    "breadcrumb": "4. Pharmacological treatments for heart failure with reduced ejection fraction > 4.1. Disease-modifying drug therapy > 4.1.3. Beta-blockers",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0021",
+    "unit_index": 20,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "7a918906447e26b1561926ca769142c5443976b9d0634f89bc477e251f700d74",
+    "text": "5. Device therapy and surgical interventions",
+    "table_data": null,
+    "section_id": "sec_5",
+    "heading_level": 1,
+    "breadcrumb": "5. Device therapy and surgical interventions",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0022",
+    "unit_index": 21,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "31494aba894dbf249b473268b4bf77c8da5a998f8a617b6e97ecd3505424d632",
+    "text": "5.1. Implantable cardioverter-defibrillator",
+    "table_data": null,
+    "section_id": "sec_5_1",
+    "heading_level": 2,
+    "breadcrumb": "5. Device therapy and surgical interventions > 5.1. Implantable cardioverter-defibrillator",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0023",
+    "unit_index": 22,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "756f982df7f520acb49598072bcaa9b2ff587d5d11b359dc584695a9a7b71c60",
+    "text": "An ICD is recommended to reduce the risk of sudden death in patients with symptomatic HF (NYHA Class II-III) and LVEF <= 35% despite >= 3 months of OMT (Class I, Level A).",
+    "table_data": null,
+    "section_id": "sec_5_1",
+    "heading_level": null,
+    "breadcrumb": "5. Device therapy and surgical interventions > 5.1. Implantable cardioverter-defibrillator",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0024",
+    "unit_index": 23,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "figure",
+    "classification": "content",
+    "content_hash": "5e8d73094429d62155da4cbe80dc5a973f5da60432cc7924defcb4e91ff64e21",
+    "text": "Figure 1: Diagnostic algorithm and treatment pathway for HFrEF patients.",
+    "table_data": null,
+    "section_id": "sec_5_1",
+    "heading_level": null,
+    "breadcrumb": "5. Device therapy and surgical interventions > 5.1. Implantable cardioverter-defibrillator",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 150.0,
+        "r": 560.0,
+        "b": 300.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0025",
+    "unit_index": 24,
+    "document_id": "doc_06ca79869efce63a",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "429b3124f90ac04037501e122d8c673a8cbd1329479952c7252455674ba38e46",
+    "text": "Table 1: Starting and target dosages of disease-modifying drugs in HFrEF. | Drug Class | Agent | Starting Dose | Target Dose | | SGLT2 inhibitor | Dapagliflozin | 10 mg once daily | 10 mg once daily | | SGLT2 inhibitor | Empagliflozin | 10 mg once daily | 10 mg once daily | | ARNI | Sacubitril/valsartan | 49/51 mg twice daily | 97/103 mg twice daily | | Beta-blocker | Carvedilol | 3.125 mg twice daily | 25-50 mg twice daily |",
+    "table_data": null,
+    "section_id": "sec_5_1",
+    "heading_level": null,
+    "breadcrumb": "5. Device therapy and surgical interventions > 5.1. Implantable cardioverter-defibrillator",
+    "provenance": {
+      "document_id": "doc_06ca79869efce63a",
+      "file_name": "ESC_Guidelines_for_the_Management_of_Heart_Failure_2023.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  }
+]

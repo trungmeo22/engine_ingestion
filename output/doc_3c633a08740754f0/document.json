@@ -1,0 +1,39 @@
+{
+  "document_id": "doc_3c633a08740754f0",
+  "file_name": "ESC_Copy.txt",
+  "file_path": "/tmp/tmpmq9zp7un/input/ESC_Copy.txt",
+  "storage_path": "/tmp/tmpmq9zp7un/storage/raw/doc_3c633a08740754f0/ESC_Copy.txt",
+  "file_extension": ".txt",
+  "mime_type": "text/plain",
+  "file_size": 161,
+  "file_hash": "3c633a08740754f0214d75ad1c38de825144f710277e24f57eede67a182115fe",
+  "title": "ESC Copy",
+  "document_type": "unknown",
+  "organization": "ESC",
+  "publication_year": null,
+  "version": null,
+  "language": "en",
+  "specialty": null,
+  "topics": [],
+  "processing_status": "completed",
+  "error_message": null,
+  "retry_count": 0,
+  "created_at": "2026-08-23T13:49:35.243372+00:00",
+  "updated_at": "2026-08-23T13:49:35.243372+00:00",
+  "metadata": {
+    "title": "ESC Copy",
+    "authors": [],
+    "organization": "ESC",
+    "publication_year": null,
+    "version": null,
+    "language": "en",
+    "specialty": null,
+    "topics": [],
+    "document_type": "unknown",
+    "confidence": 0.55,
+    "needs_llm_classification": true,
+    "evidence_signals": [
+      "org:ESC"
+    ]
+  }
+}

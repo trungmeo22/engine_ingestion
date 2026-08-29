@@ -1,0 +1,8 @@
+{
+  "name": "Medical Knowledge Engine",
+  "description": "Production-ready medical document ingestion, classification, section hierarchy parsing, clinical marker preservation, and canonical structuring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

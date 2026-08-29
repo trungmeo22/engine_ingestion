@@ -1,0 +1,227 @@
+[
+  {
+    "unit_id": "su_0001",
+    "unit_index": 0,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "6d7767bd8079bf762427f35cd3367d9fd92fc59ba70237a62de9981119b944eb",
+    "text": "Dapagliflozin in Patients with Heart Failure and Reduced Ejection Fraction. DAPA-HF Trial Investigators. New England Journal of Medicine, 2019; 381:1995-2008.",
+    "table_data": null,
+    "section_id": null,
+    "heading_level": null,
+    "breadcrumb": "DAPA HF Randomized Trial Dapagliflozin",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0002",
+    "unit_index": 1,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "21ec2f334ba9fbcdd2dbfe5412f3f2317b0df6cec88e9113896ea8faa1218be4",
+    "text": "1. Background",
+    "table_data": null,
+    "section_id": "sec_1",
+    "heading_level": 1,
+    "breadcrumb": "1. Background",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0003",
+    "unit_index": 2,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "ebbb16fb0e20d1e789affdbb2b779851ab85fad68bea31c56d4444e40485e7f0",
+    "text": "In patients with type 2 diabetes, sodium-glucose cotransporter 2 (SGLT2) inhibitors reduce the risk of first hospitalization for heart failure.",
+    "table_data": null,
+    "section_id": "sec_1",
+    "heading_level": null,
+    "breadcrumb": "1. Background",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0004",
+    "unit_index": 3,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "5c5a0cd20bce9dda6128cf7f116d703a2f3a24bf8f32aba52f8dec072435f234",
+    "text": "2. Methods",
+    "table_data": null,
+    "section_id": "sec_2",
+    "heading_level": 1,
+    "breadcrumb": "2. Methods",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0005",
+    "unit_index": 4,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "paragraph",
+    "classification": "clinical_marker",
+    "content_hash": "9d490968089bfbf0f95814589b78acb9e55e7302bb883991c84d4201c4bc92a8",
+    "text": "In this phase 3, placebo-controlled, randomized controlled trial, we randomly assigned 4744 patients with NYHA class II, III, or IV heart failure and an ejection fraction of 40% or less to receive either dapagliflozin (at a dose of 10 mg once daily) or matching placebo.",
+    "table_data": null,
+    "section_id": "sec_2",
+    "heading_level": null,
+    "breadcrumb": "2. Methods",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0006",
+    "unit_index": 5,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "c3fea7138f4bb51688359fa370115de73c95fc2601dbf4e5411368aa2da343c0",
+    "text": "3. Results",
+    "table_data": null,
+    "section_id": "sec_3",
+    "heading_level": 1,
+    "breadcrumb": "3. Results",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0007",
+    "unit_index": 6,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "8b998948839960b88a2f0a50789b89a3bfa379e86eb34ee1a76e8ffba796e20e",
+    "text": "Over a median of 18.2 months, the primary outcome occurred in 386 of 2373 patients (16.3%) in the dapagliflozin group and in 502 of 2371 patients (21.2%) in the placebo group (hazard ratio, 0.74; 95% confidence interval [CI], 0.65 to 0.85; P<0.001).",
+    "table_data": null,
+    "section_id": "sec_3",
+    "heading_level": null,
+    "breadcrumb": "3. Results",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0008",
+    "unit_index": 7,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "heading",
+    "classification": "content",
+    "content_hash": "fc8793565423d1cc5f01b107cb6a0ca6114913f42bfe8ae24920226b76be8165",
+    "text": "4. Conclusions",
+    "table_data": null,
+    "section_id": "sec_4",
+    "heading_level": 1,
+    "breadcrumb": "4. Conclusions",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 80.0,
+        "r": 560.0,
+        "b": 100.0
+      },
+      "coord_origin": "top-left"
+    }
+  },
+  {
+    "unit_id": "su_0009",
+    "unit_index": 8,
+    "document_id": "doc_27d02c37fced9e21",
+    "unit_type": "paragraph",
+    "classification": "content",
+    "content_hash": "c612f4d13bd8184e56a7c925c207d5c2ecc95c6fc0fc9229237c2409d2e67c30",
+    "text": "Among patients with heart failure and a reduced ejection fraction, the risk of worsening heart failure or death from cardiovascular causes was lower among those who received dapagliflozin than among those who received placebo, regardless of the presence or absence of diabetes.",
+    "table_data": null,
+    "section_id": "sec_4",
+    "heading_level": null,
+    "breadcrumb": "4. Conclusions",
+    "provenance": {
+      "document_id": "doc_27d02c37fced9e21",
+      "file_name": "DAPA-HF_Randomized_Trial_Dapagliflozin.txt",
+      "page": 1,
+      "bbox": {
+        "l": 40.0,
+        "t": 100.0,
+        "r": 560.0,
+        "b": 150.0
+      },
+      "coord_origin": "top-left"
+    }
+  }
+]

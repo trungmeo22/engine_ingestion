@@ -1,0 +1,15 @@
+{
+  "document_id": "doc_d71fadf1dd28bf5d",
+  "status": "completed",
+  "total_sections": 1,
+  "total_semantic_units": 1,
+  "validation_summary": {
+    "is_valid": true,
+    "status": "PASS",
+    "errors": [],
+    "warnings": [],
+    "total_errors": 0,
+    "total_warnings": 0
+  },
+  "updated_at": "2026-08-23T13:49:35.226157+00:00"
+}
