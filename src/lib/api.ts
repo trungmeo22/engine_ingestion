@@ -22,7 +22,6 @@ import {
   retryIngest,
   startIngest,
   deleteDocument as deleteKnowledgeDocument,
-  deleteFailedDocuments as deleteKnowledgeFailed,
 } from './knowledgeApi';
 
 const DELETED_DOCS_STORAGE_KEY = 'mke_deleted_doc_ids_v1';
@@ -238,8 +237,11 @@ export async function reprocessDocument(docId: string): Promise<{ success: boole
 export async function deleteDocument(docId: string): Promise<{ success: boolean; error?: string }> {
   try {
     const res = await deleteKnowledgeDocument(docId);
-    if (res.success) saveDeletedDocId(docId);
-    return { success: res.success };
+    if (!res.success) {
+      return { success: false, error: res.message || 'Backend did not confirm deletion.' };
+    }
+    saveDeletedDocId(docId);
+    return { success: true };
   } catch (e: any) {
     return { success: false, error: e?.message || 'Delete failed' };
   }
@@ -247,7 +249,45 @@ export async function deleteDocument(docId: string): Promise<{ success: boolean;
 
 export async function deleteFailedDocuments(): Promise<{ success: boolean; error?: string }> {
   try {
-    await deleteKnowledgeFailed();
+    // Delete each failed document by its concrete document_id instead of relying on
+    // one bulk endpoint. This keeps UI state, backend state, jobs/storage cleanup,
+    // and local tombstones aligned even when a bulk route is unavailable.
+    const docs = await listDocuments();
+    const failed = docs.filter(
+      (d: any) => String(d.processing_status || d.status || '').toLowerCase() === 'failed'
+    );
+
+    if (failed.length === 0) {
+      return { success: true };
+    }
+
+    const errors: string[] = [];
+    let deletedCount = 0;
+
+    for (const doc of failed) {
+      const docId = doc.document_id;
+      if (!docId) continue;
+
+      try {
+        const res = await deleteKnowledgeDocument(docId);
+        if (res.success) {
+          saveDeletedDocId(docId);
+          deletedCount += 1;
+        } else {
+          errors.push(`${docId}: ${res.message || 'backend did not confirm deletion'}`);
+        }
+      } catch (e: any) {
+        errors.push(`${docId}: ${e?.message || 'delete failed'}`);
+      }
+    }
+
+    if (errors.length > 0) {
+      return {
+        success: false,
+        error: `Đã xóa ${deletedCount}/${failed.length} tài liệu lỗi. Không xóa được: ${errors.join('; ')}`,
+      };
+    }
+
     return { success: true };
   } catch (e: any) {
     return { success: false, error: e?.message || 'Delete failed' };
