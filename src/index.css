@@ -8,3 +8,22 @@
     font-family: 'JetBrains Mono', monospace;
   }
 }
+
+/*
+ * Document inventory table: keep both axes scrollable inside a viewport-sized
+ * region so the horizontal scrollbar is reachable without scrolling to the
+ * bottom of the whole application. The table header remains visible while
+ * browsing long inventories.
+ */
+main .overflow-x-auto:has(> table) {
+  max-height: min(68vh, 720px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+main .overflow-x-auto:has(> table) > table > thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
