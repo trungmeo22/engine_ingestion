@@ -43,15 +43,15 @@ export function getKnowledgeApiBaseUrl(): string {
   const explicit = env.VITE_KNOWLEDGE_API_BASE_URL || env.VITE_API_BASE_URL || '';
   return explicit && String(explicit).trim()
     ? String(explicit).trim().replace(/\/+$/, '')
-    : '/api/proxy';
+    : '/api';
 }
 
 function buildRequestUrl(endpoint: string): string {
   const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
   const base = getKnowledgeApiBaseUrl();
 
-  if (base === '/api/proxy') {
-    return `/api/proxy?path=${encodeURIComponent(normalizedEndpoint)}`;
+  if (base === '/api') {
+    return `/api?path=${encodeURIComponent(normalizedEndpoint)}`;
   }
 
   return `${base}${normalizedEndpoint}`;
