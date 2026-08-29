@@ -29,17 +29,27 @@ const HOP_BY_HOP_HEADERS = new Set([
 
 function getForwardPath(req: IncomingMessage): string {
   const incoming = new URL(req.url || '/api/proxy', 'http://vercel.local');
-  const pathParam = incoming.searchParams.get('path') || '';
+  const rawPathParam = incoming.searchParams.get('path') || '';
   incoming.searchParams.delete('path');
 
-  const cleanPath = pathParam
+  const queryIndex = rawPathParam.indexOf('?');
+  const rawPath = queryIndex >= 0 ? rawPathParam.slice(0, queryIndex) : rawPathParam;
+  const embeddedQuery = queryIndex >= 0 ? rawPathParam.slice(queryIndex + 1) : '';
+
+  const cleanPath = rawPath
     .split('/')
     .filter(Boolean)
     .map((part) => encodeURIComponent(decodeURIComponent(part)))
     .join('/');
 
   const suffix = cleanPath ? `/${cleanPath}` : '/';
-  const query = incoming.searchParams.toString();
+
+  const mergedQuery = new URLSearchParams(embeddedQuery);
+  for (const [key, value] of incoming.searchParams.entries()) {
+    mergedQuery.append(key, value);
+  }
+
+  const query = mergedQuery.toString();
   return query ? `${suffix}?${query}` : suffix;
 }
 
