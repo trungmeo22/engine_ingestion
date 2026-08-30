@@ -38,6 +38,13 @@ export interface DocumentUploadMetadata {
   tags?: string[];
 }
 
+interface DirectUploadTicket {
+  token: string;
+  upload_url: string;
+  expires_at: number;
+  max_upload_bytes: number;
+}
+
 export function getKnowledgeApiBaseUrl(): string {
   const env = (import.meta as any).env || {};
   const explicit = env.VITE_KNOWLEDGE_API_BASE_URL || env.VITE_API_BASE_URL || '';
@@ -78,6 +85,35 @@ async function json<T>(response: Response): Promise<T> {
     throw new Error(Array.isArray(msg) ? JSON.stringify(msg) : String(msg));
   }
   return payload as T;
+}
+
+async function getDirectUploadTicket(file: File): Promise<DirectUploadTicket> {
+  const response = await fetch('/api/upload-ticket', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      file_name: sanitizeStorageFilename(file.name),
+      file_size: file.size,
+    }),
+  });
+  return json<DirectUploadTicket>(response);
+}
+
+function buildUploadForm(file: File, metadata?: DocumentUploadMetadata): FormData {
+  const form = new FormData();
+  form.append('file', file, sanitizeStorageFilename(file.name));
+  form.append('source_authority', metadata?.source_authority?.trim() || 'other');
+  form.append('document_type', metadata?.document_type?.trim() || 'unknown');
+  if (metadata?.publication_year != null && String(metadata.publication_year).trim()) {
+    form.append('publication_year', String(metadata.publication_year));
+  }
+  if (metadata?.language) form.append('language', metadata.language);
+  if (metadata?.title) form.append('title', metadata.title);
+  if (metadata?.source) form.append('source', metadata.source);
+  if (metadata?.tags?.length) {
+    for (const tag of metadata.tags) form.append('tags', tag);
+  }
+  return form;
 }
 
 export function sanitizeStorageFilename(rawName: string): string {
@@ -157,17 +193,37 @@ export async function uploadDocument(file: File, metadata?: DocumentUploadMetada
   if (ext !== '.pdf' && file.type !== 'application/pdf') throw new Error('Only PDF documents are supported.');
   if (file.size > 100 * 1024 * 1024) throw new Error('File size exceeds the 100MB limit.');
 
-  const form = new FormData();
-  form.append('file', file, sanitizeStorageFilename(file.name));
-  form.append('source_authority', metadata?.source_authority?.trim() || 'other');
-  form.append('document_type', metadata?.document_type?.trim() || 'unknown');
-  if (metadata?.publication_year != null && String(metadata.publication_year).trim()) {
-    form.append('publication_year', String(metadata.publication_year));
-  }
-  if (metadata?.language) form.append('language', metadata.language);
-  if (metadata?.title) form.append('title', metadata.title);
+  let response: Response;
 
-  const res = await json<any>(await request('/documents/upload', { method: 'POST', body: form }));
+  try {
+    const ticket = await getDirectUploadTicket(file);
+    if (!ticket?.upload_url) throw new Error('Upload ticket did not contain an upload URL.');
+
+    response = await fetch(ticket.upload_url, {
+      method: 'POST',
+      body: buildUploadForm(file, metadata),
+      mode: 'cors',
+      credentials: 'omit',
+      cache: 'no-store',
+    });
+  } catch (directError: any) {
+    // Small files keep a compatibility fallback while the direct-upload backend
+    // is being deployed. Large files must never be sent through Vercel because
+    // Vercel rejects request bodies above its function payload limit.
+    if (file.size > 4 * 1024 * 1024) {
+      throw new Error(
+        directError?.message ||
+          'Direct upload to the VPS is unavailable. Large PDF files cannot be proxied through Vercel.'
+      );
+    }
+
+    response = await request('/documents/upload', {
+      method: 'POST',
+      body: buildUploadForm(file, metadata),
+    });
+  }
+
+  const res = await json<any>(response);
   const documentId = res?.document_id || res?.external_id || res?.id || res?.data?.document_id;
   if (!documentId) throw new Error(res?.detail || res?.error || res?.message || 'Server did not return a document ID.');
   return {
