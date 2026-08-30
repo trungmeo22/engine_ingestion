@@ -3,8 +3,6 @@ import { Header } from './components/Header';
 import { DocumentList } from './components/DocumentList';
 import { DocumentInspectorModal } from './components/DocumentInspectorModal';
 import { UploadModal } from './components/UploadModal';
-import { BatchProcessingModal } from './components/BatchProcessingModal';
-import { TestsRunnerModal } from './components/TestsRunnerModal';
 import { DocumentRecord, CanonicalDocument, DashboardStats } from './types';
 import {
   checkBackendHealth,
@@ -29,25 +27,18 @@ export const App: React.FC = () => {
   const [supabaseOnline, setSupabaseOnline] = useState<boolean | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Modals state
   const [inspectDocId, setInspectDocId] = useState<string | null>(null);
   const [canonicalDoc, setCanonicalDoc] = useState<CanonicalDocument | null>(null);
   const [inspectLoading, setInspectLoading] = useState(false);
-
   const [isUploadOpen, setIsUploadOpen] = useState(false);
-  const [isBatchOpen, setIsBatchOpen] = useState(false);
-  const [isTestsOpen, setIsTestsOpen] = useState(false);
 
-  // Tracking start times for timeout calculation
   const processingStartTimesRef = useRef<Record<string, number>>({});
 
-  // Check health and fetch initial data
   const fetchData = useCallback(async (silent = false) => {
     if (!silent) setLoading(true);
     setErrorMessage(null);
 
     try {
-      // 1. Health checks (Backend VPS + Supabase)
       const [health, supaHealth] = await Promise.allSettled([
         checkBackendHealth(),
         checkSupabaseConnection(),
@@ -59,17 +50,15 @@ export const App: React.FC = () => {
       if (supaHealth.status === 'fulfilled') {
         setSupabaseOnline(supaHealth.value.connected);
       } else {
-        setSupabaseOnline(true); // default optimistic if check bypassed
+        setSupabaseOnline(true);
       }
 
-      // 2. Fetch documents and stats
       const docsData = await fetchDocuments();
       setDocuments(docsData);
 
       const statsData = await fetchDashboardStats(docsData);
       setStats(statsData);
 
-      // Update processing start timers for active documents
       const now = Date.now();
       docsData.forEach((doc) => {
         const isProcessing = ['queued', 'processing', 'classifying', 'parsing', 'validating'].includes(
@@ -92,22 +81,18 @@ export const App: React.FC = () => {
     }
   }, []);
 
-  // Initial load
   useEffect(() => {
     fetchData(false);
   }, [fetchData]);
 
-  // Determine if any documents are currently in progress
   const hasActiveProcessing = documents.some((d) =>
     ['queued', 'processing', 'classifying', 'parsing', 'validating', 'retrying'].includes(d.processing_status)
   );
 
-  // Polling effect: runs every 2s while any document is active
   useEffect(() => {
     if (!hasActiveProcessing && !inspectDocId) return;
 
     const intervalId = setInterval(async () => {
-      // Check 30-minute timeout for any active document
       const now = Date.now();
       let timeoutDetected = false;
 
@@ -126,10 +111,8 @@ export const App: React.FC = () => {
         setErrorMessage('Document processing is taking longer than expected.');
       }
 
-      // Refresh documents silently
       await fetchData(true);
 
-      // Also refresh canonical inspection if modal is open
       if (inspectDocId) {
         try {
           const requestedDocId = inspectDocId;
@@ -146,10 +129,7 @@ export const App: React.FC = () => {
     return () => clearInterval(intervalId);
   }, [hasActiveProcessing, inspectDocId, documents, fetchData]);
 
-  // Load canonical document for inspection
   const handleInspect = async (docId: string) => {
-    // Clear the previous document immediately so stale async work cannot make an
-    // old inspector flash back open while a new request is in flight.
     setCanonicalDoc(null);
     setInspectDocId(docId);
     setInspectLoading(true);
@@ -166,15 +146,11 @@ export const App: React.FC = () => {
   };
 
   const closeInspector = () => {
-    // inspectDocId is the source of truth for whether the inspector is allowed
-    // to render. Clearing it prevents late polling/fetch responses from
-    // reopening the modal after the user has closed it.
     setInspectDocId(null);
     setCanonicalDoc(null);
     setInspectLoading(false);
   };
 
-  // Retry document
   const handleRetry = async (docId: string) => {
     try {
       setLoading(true);
@@ -195,11 +171,9 @@ export const App: React.FC = () => {
     }
   };
 
-  // Re-analyze document (chạy phân tích lại)
   const handleReprocess = async (docId: string) => {
     try {
       processingStartTimesRef.current[docId] = Date.now();
-      // Optimistically update document status
       setDocuments((prev) =>
         prev.map((d) => (d.document_id === docId ? { ...d, processing_status: 'processing' as const, error_message: null } : d))
       );
@@ -217,21 +191,17 @@ export const App: React.FC = () => {
     }
   };
 
-  // Delete document (xóa tài liệu khỏi database)
   const handleDelete = async (docId: string) => {
     try {
-      // Optimistically remove from state
       const updatedDocs = documents.filter((d) => d.document_id !== docId);
       setDocuments(updatedDocs);
       const updatedStats = await fetchDashboardStats(updatedDocs);
       setStats(updatedStats);
 
-      // If currently inspecting this doc, close modal
       if (inspectDocId === docId) {
         closeInspector();
       }
 
-      // Persist delete
       await deleteDocument(docId);
       await fetchData(true);
     } catch (err: any) {
@@ -240,10 +210,8 @@ export const App: React.FC = () => {
     }
   };
 
-  // Delete all failed documents (xóa triệt để tất cả tài liệu lỗi)
   const handleDeleteAllFailed = async () => {
     try {
-      // Optimistically remove all failed docs from state
       const updatedDocs = documents.filter(
         (d) =>
           d.processing_status !== 'failed' &&
@@ -255,7 +223,6 @@ export const App: React.FC = () => {
       const updatedStats = await fetchDashboardStats(updatedDocs);
       setStats(updatedStats);
 
-      // If currently inspecting a failed doc, close modal
       if (inspectDocId) {
         const inspectedDoc = documents.find((d) => d.document_id === inspectDocId);
         if (
@@ -282,7 +249,6 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
-      {/* Header Bar */}
       <Header
         stats={stats}
         loading={loading}
@@ -290,12 +256,8 @@ export const App: React.FC = () => {
         supabaseOnline={supabaseOnline}
         onRefresh={() => fetchData(false)}
         onOpenUpload={() => setIsUploadOpen(true)}
-        onOpenBatch={() => setIsBatchOpen(true)}
-        onGenerateSamples={() => fetchData(false)}
-        onOpenTests={() => setIsTestsOpen(true)}
       />
 
-      {/* Backend connection / error warning banner */}
       {errorMessage ? (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 w-full">
           <div className="bg-amber-50 border border-amber-200 text-amber-900 px-4 py-2.5 rounded-xl text-xs flex items-center justify-between shadow-2xs">
@@ -330,9 +292,7 @@ export const App: React.FC = () => {
         </div>
       ) : null}
 
-      {/* Main Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full space-y-6">
-        {/* Document Inventory Table */}
         <DocumentList
           documents={documents}
           loading={loading}
@@ -348,7 +308,6 @@ export const App: React.FC = () => {
         />
       </main>
 
-      {/* Modals */}
       {inspectDocId && canonicalDoc && (
         <DocumentInspectorModal
           document={canonicalDoc}
@@ -373,25 +332,10 @@ export const App: React.FC = () => {
           onUploadSuccess={async (newDocId) => {
             processingStartTimesRef.current[newDocId] = Date.now();
             await fetchData(true);
-            // Do not auto-open the inspector after upload. Upload completion
-            // should return the user to the document list without spawning a
-            // second modal.
           }}
         />
       )}
 
-      <BatchProcessingModal
-        isOpen={isBatchOpen}
-        onClose={() => setIsBatchOpen(false)}
-        onSuccess={() => fetchData(false)}
-      />
-
-      <TestsRunnerModal
-        isOpen={isTestsOpen}
-        onClose={() => setIsTestsOpen(false)}
-      />
-
-      {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-4 text-center text-xs text-slate-400">
         Medical Knowledge Engine • Connected to VPS Document Management API • Parser-Only Pipeline
       </footer>
