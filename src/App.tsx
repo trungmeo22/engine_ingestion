@@ -132,8 +132,9 @@ export const App: React.FC = () => {
       // Also refresh canonical inspection if modal is open
       if (inspectDocId) {
         try {
-          const updatedDoc = await fetchCanonicalDocument(inspectDocId);
-          if (updatedDoc) {
+          const requestedDocId = inspectDocId;
+          const updatedDoc = await fetchCanonicalDocument(requestedDocId);
+          if (updatedDoc && requestedDocId === inspectDocId) {
             setCanonicalDoc(updatedDoc);
           }
         } catch (err) {
@@ -147,6 +148,9 @@ export const App: React.FC = () => {
 
   // Load canonical document for inspection
   const handleInspect = async (docId: string) => {
+    // Clear the previous document immediately so stale async work cannot make an
+    // old inspector flash back open while a new request is in flight.
+    setCanonicalDoc(null);
     setInspectDocId(docId);
     setInspectLoading(true);
     try {
@@ -159,6 +163,15 @@ export const App: React.FC = () => {
     } finally {
       setInspectLoading(false);
     }
+  };
+
+  const closeInspector = () => {
+    // inspectDocId is the source of truth for whether the inspector is allowed
+    // to render. Clearing it prevents late polling/fetch responses from
+    // reopening the modal after the user has closed it.
+    setInspectDocId(null);
+    setCanonicalDoc(null);
+    setInspectLoading(false);
   };
 
   // Retry document
@@ -215,8 +228,7 @@ export const App: React.FC = () => {
 
       // If currently inspecting this doc, close modal
       if (inspectDocId === docId) {
-        setCanonicalDoc(null);
-        setInspectDocId(null);
+        closeInspector();
       }
 
       // Persist delete
@@ -252,8 +264,7 @@ export const App: React.FC = () => {
             (inspectedDoc as any).status === 'failed' ||
             Boolean(inspectedDoc.error_message))
         ) {
-          setCanonicalDoc(null);
-          setInspectDocId(null);
+          closeInspector();
         }
       }
 
@@ -338,18 +349,15 @@ export const App: React.FC = () => {
       </main>
 
       {/* Modals */}
-      {canonicalDoc && (
+      {inspectDocId && canonicalDoc && (
         <DocumentInspectorModal
           document={canonicalDoc}
           loading={inspectLoading}
-          onClose={() => {
-            setCanonicalDoc(null);
-            setInspectDocId(null);
-          }}
+          onClose={closeInspector}
           onRetry={handleRetry}
           onReprocess={handleReprocess}
           onDelete={handleDelete}
-          onMetadataUpdated={async (updated) => {
+          onMetadataUpdated={async () => {
             await fetchData(true);
             if (inspectDocId) {
               await handleInspect(inspectDocId);
@@ -358,15 +366,19 @@ export const App: React.FC = () => {
         />
       )}
 
-      <UploadModal
-        isOpen={isUploadOpen}
-        onClose={() => setIsUploadOpen(false)}
-        onUploadSuccess={async (newDocId) => {
-          processingStartTimesRef.current[newDocId] = Date.now();
-          await fetchData(true);
-          handleInspect(newDocId);
-        }}
-      />
+      {isUploadOpen && (
+        <UploadModal
+          isOpen={true}
+          onClose={() => setIsUploadOpen(false)}
+          onUploadSuccess={async (newDocId) => {
+            processingStartTimesRef.current[newDocId] = Date.now();
+            await fetchData(true);
+            // Do not auto-open the inspector after upload. Upload completion
+            // should return the user to the document list without spawning a
+            // second modal.
+          }}
+        />
+      )}
 
       <BatchProcessingModal
         isOpen={isBatchOpen}
