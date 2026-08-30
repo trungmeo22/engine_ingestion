@@ -10,20 +10,102 @@
 }
 
 /*
- * Document inventory table: keep both axes scrollable inside a viewport-sized
- * region so the horizontal scrollbar is reachable without scrolling to the
- * bottom of the whole application. The table header remains visible while
- * browsing long inventories.
+ * Document inventory table
+ *
+ * Keep the inventory inside a viewport-sized vertical scrolling region, but
+ * never require horizontal scrolling. The table uses a fixed layout so long
+ * filenames/organizations cannot expand the page. Less important columns are
+ * progressively hidden on narrower screens.
  */
 main .overflow-x-auto:has(> table) {
   max-height: min(68vh, 720px);
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
+}
+
+main .overflow-x-auto:has(> table) > table {
+  width: 100%;
+  min-width: 0 !important;
+  table-layout: fixed;
 }
 
 main .overflow-x-auto:has(> table) > table > thead {
   position: sticky;
   top: 0;
   z-index: 10;
+}
+
+/* Desktop column proportions. */
+main .overflow-x-auto:has(> table) th:nth-child(1) { width: 27%; }
+main .overflow-x-auto:has(> table) th:nth-child(2) { width: 12%; }
+main .overflow-x-auto:has(> table) th:nth-child(3) { width: 18%; }
+main .overflow-x-auto:has(> table) th:nth-child(4) { width: 7%; }
+main .overflow-x-auto:has(> table) th:nth-child(5) { width: 7%; }
+main .overflow-x-auto:has(> table) th:nth-child(6) { width: 12%; }
+main .overflow-x-auto:has(> table) th:nth-child(7) { width: 17%; }
+
+/* Tailwind whitespace-nowrap on individual cells must not force the table wide. */
+main .overflow-x-auto:has(> table) th,
+main .overflow-x-auto:has(> table) td {
+  min-width: 0;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Keep badges compact while allowing their text to wrap if necessary. */
+main .overflow-x-auto:has(> table) td span {
+  max-width: 100%;
+}
+
+/* Action buttons stay inside their cell instead of extending the row width. */
+main .overflow-x-auto:has(> table) td:last-child > div {
+  flex-wrap: wrap;
+  row-gap: 0.3rem;
+}
+
+/* Laptop/tablet: keep the operational columns and remove counters/type noise. */
+@media (max-width: 1024px) {
+  main .overflow-x-auto:has(> table) th:nth-child(2),
+  main .overflow-x-auto:has(> table) td:nth-child(2),
+  main .overflow-x-auto:has(> table) th:nth-child(4),
+  main .overflow-x-auto:has(> table) td:nth-child(4),
+  main .overflow-x-auto:has(> table) th:nth-child(5),
+  main .overflow-x-auto:has(> table) td:nth-child(5) {
+    display: none;
+  }
+
+  main .overflow-x-auto:has(> table) th:nth-child(1) { width: 36%; }
+  main .overflow-x-auto:has(> table) th:nth-child(3) { width: 24%; }
+  main .overflow-x-auto:has(> table) th:nth-child(6) { width: 16%; }
+  main .overflow-x-auto:has(> table) th:nth-child(7) { width: 24%; }
+
+  /* Icons are enough for secondary actions; native title remains as tooltip. */
+  main .overflow-x-auto:has(> table) td:last-child button span {
+    display: none !important;
+  }
+}
+
+/* Phone: show only document, status and actions. */
+@media (max-width: 640px) {
+  main .overflow-x-auto:has(> table) th:nth-child(3),
+  main .overflow-x-auto:has(> table) td:nth-child(3) {
+    display: none;
+  }
+
+  main .overflow-x-auto:has(> table) th:nth-child(1) { width: 55%; }
+  main .overflow-x-auto:has(> table) th:nth-child(6) { width: 20%; }
+  main .overflow-x-auto:has(> table) th:nth-child(7) { width: 25%; }
+
+  main .overflow-x-auto:has(> table) th,
+  main .overflow-x-auto:has(> table) td {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  main .overflow-x-auto:has(> table) td:first-child .font-mono {
+    display: none;
+  }
 }
