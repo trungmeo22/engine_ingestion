@@ -49,13 +49,36 @@ const LANGUAGE_OPTIONS: { code: string; label: string }[] = [
   { code: 'other', label: 'Khác' },
 ];
 
+type FileState = { status: 'pending' | 'uploading' | 'done' | 'failed'; message?: string };
+
+// Same name and size twice is the same file picked twice, not two documents.
+const fileKey = (file: File) => file.name + ':' + file.size;
+
+const MAX_SIZE_BYTES = 100 * 1024 * 1024; // 100MB, the server's own limit
+
+function rejectReason(file: File): string | null {
+  const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+  if (ext !== '.pdf' && file.type !== 'application/pdf') {
+    return 'chỉ hỗ trợ PDF';
+  }
+  if (file.size > MAX_SIZE_BYTES) {
+    return 'vượt quá 100MB';
+  }
+  return null;
+}
+
 export const UploadModal: React.FC<UploadModalProps> = ({
   isOpen,
   onClose,
   onUploadSuccess,
 }) => {
   const [dragActive, setDragActive] = useState(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  // A queue, not one file. The upload endpoint takes a single file per call,
+  // so several files are several calls - but choosing them one at a time, and
+  // waiting for each to finish before picking the next, was the whole cost of
+  // adding a library.
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [fileStatus, setFileStatus] = useState<Record<string, FileState>>({});
 
   // Metadata form state
   const [sourceAuthority, setSourceAuthority] = useState<string>('other');
@@ -74,6 +97,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
   const [tags, setTags] = useState<string[]>([]);
 
   const [uploading, setUploading] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const [error, setError] = useState<string | null>(null);
   const [statusLog, setStatusLog] = useState<string | null>(null);
   const [activeStage, setActiveStage] = useState<string | null>(null);
@@ -138,39 +162,66 @@ export const UploadModal: React.FC<UploadModalProps> = ({
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      const file = e.dataTransfer.files[0];
-      validateAndSetFile(file);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      addFiles(e.dataTransfer.files);
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      validateAndSetFile(e.target.files[0]);
+    if (e.target.files && e.target.files.length > 0) {
+      addFiles(e.target.files);
     }
+    // Let the same file be chosen again after it is removed from the queue.
+    e.target.value = '';
   };
 
-  const validateAndSetFile = (file: File) => {
-    const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
-    const isPdf = ext === '.pdf' || file.type === 'application/pdf';
+  const handleRemoveFile = (key: string) => {
+    setSelectedFiles((prev) => prev.filter((f) => fileKey(f) !== key));
+    setFileStatus((prev) => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+  };
 
-    if (!isPdf) {
-      setError('Chỉ hỗ trợ tệp định dạng PDF cho pipeline phân tích.');
-      setSelectedFile(null);
-      return;
-    }
+  const addFiles = (incoming: FileList) => {
+    const accepted: File[] = [];
+    const rejected: string[] = [];
 
-    const MAX_SIZE_BYTES = 100 * 1024 * 1024; // 100MB
-    if (file.size > MAX_SIZE_BYTES) {
-      setError('Dung lượng tệp vượt quá giới hạn 100MB.');
-      setSelectedFile(null);
-      return;
-    }
+    Array.from(incoming).forEach((file) => {
+      const reason = rejectReason(file);
+      if (reason) {
+        rejected.push(`${file.name} (${reason})`);
+      } else {
+        accepted.push(file);
+      }
+    });
 
-    setError(null);
-    setSelectedFile(file);
-    if (!title) {
-      // Auto-populate title from clean filename
+    // A bad file among good ones rejects itself, not the whole selection.
+    setError(rejected.length > 0 ? `Đã bỏ qua: ${rejected.join(', ')}` : null);
+
+    if (accepted.length === 0) return;
+
+    let added: File[] = [];
+    setSelectedFiles((prev) => {
+      const seen = new Set(prev.map(fileKey));
+      added = accepted.filter((f) => !seen.has(fileKey(f)));
+      return [...prev, ...added];
+    });
+
+    setFileStatus((prev) => {
+      const next = { ...prev };
+      accepted.forEach((f) => {
+        if (!next[fileKey(f)]) next[fileKey(f)] = { status: 'pending' };
+      });
+      return next;
+    });
+
+    const file = accepted[0];
+    if (!title && accepted.length === 1 && selectedFiles.length === 0) {
+      // One file: its name is a reasonable title to offer. Several: each
+      // document keeps its own name, and a shared title would be wrong for
+      // all but one of them.
       const cleanName = file.name.replace(/\.pdf$/i, '').replace(/[_-]/g, ' ');
       setTitle(cleanName);
     }
@@ -188,7 +239,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
   };
 
   const handleSubmit = async () => {
-    if (!selectedFile) return;
+    if (selectedFiles.length === 0) return;
 
     // Validate publication year if provided
     let yearNum: number | undefined = undefined;
@@ -203,32 +254,58 @@ export const UploadModal: React.FC<UploadModalProps> = ({
 
     setUploading(true);
     setError(null);
-    setStatusLog('Đang tải tệp PDF lên máy chủ qua multipart/form-data...');
     setActiveStage('upload');
 
-    try {
-      const result = await uploadDocument(selectedFile, {
-        source_authority: sourceAuthority || 'other',
-        document_type: documentType || 'unknown',
-        publication_year: yearNum,
-        language: language || undefined,
-        title: title.trim() || selectedFile.name,
-        tags: tags.length > 0 ? tags : undefined,
-      });
+    const single = selectedFiles.length === 1;
+    let lastUploadedId: string | null = null;
+    const failures: string[] = [];
 
-      const uploadedDocId = result.document_id || result.external_id;
-      if (!uploadedDocId) {
-        throw new Error('Tải lên hoàn tất nhưng máy chủ không trả về Document ID hợp lệ.');
-      }
+    // Sequential on purpose. The server parses what it is given, and firing a
+    // dozen 100MB uploads at once is a good way to time one of them out; this
+    // also lets a failure name the file it belongs to.
+    for (let index = 0; index < selectedFiles.length; index += 1) {
+      const file = selectedFiles[index];
+      const key = fileKey(file);
+      setCurrentIndex(index);
+      setFileStatus((prev) => ({ ...prev, [key]: { status: 'uploading' } }));
+      setStatusLog(
+        single
+          ? 'Đang tải tệp PDF lên máy chủ qua multipart/form-data...'
+          : `Đang tải tệp ${index + 1}/${selectedFiles.length}: ${file.name}`
+      );
 
-      unmarkDeletedDocId(uploadedDocId);
+      try {
+        const result = await uploadDocument(file, {
+          source_authority: sourceAuthority || 'other',
+          document_type: documentType || 'unknown',
+          publication_year: yearNum,
+          language: language || undefined,
+          // A shared title only makes sense for a single document.
+          title: single ? title.trim() || file.name : file.name,
+          tags: tags.length > 0 ? tags : undefined,
+        });
 
-      // If server provided a job_id, poll status to update user in real-time
-      if (result.job_id) {
-        setStatusLog(`Đang khởi chạy tiến trình phân tích (Job: ${result.job_id.slice(0, 8)}...).`);
-        setActiveStage('parser');
+        const uploadedDocId = result.document_id || result.external_id;
+        if (!uploadedDocId) {
+          throw new Error('Máy chủ không trả về Document ID hợp lệ.');
+        }
 
-        try {
+        unmarkDeletedDocId(uploadedDocId);
+        lastUploadedId = uploadedDocId;
+
+        setFileStatus((prev) => ({
+          ...prev,
+          [key]: {
+            status: 'done',
+            message: result.status === 'duplicate' ? 'đã tồn tại' : 'đã vào hàng đợi',
+          },
+        }));
+
+        // Only worth following one job live. With several, the list refreshes
+        // when the modal closes and each row shows its own progress there.
+        if (single && result.job_id) {
+          setStatusLog(`Đang khởi chạy tiến trình phân tích (Job: ${result.job_id.slice(0, 8)}...).`);
+          setActiveStage('parser');
           pollJobUntilFinished(
             result.job_id,
             (job) => {
@@ -242,28 +319,51 @@ export const UploadModal: React.FC<UploadModalProps> = ({
             2000,
             15000
           ).catch((e) => console.log('Job continues in background:', e));
-        } catch {
-          // Non-blocking
         }
+      } catch (err: any) {
+        console.error('[UploadModal Error]:', file.name, err);
+        const message = err?.message || 'lỗi không xác định';
+        failures.push(`${file.name}: ${message}`);
+        setFileStatus((prev) => ({ ...prev, [key]: { status: 'failed', message } }));
+        // One bad file does not cancel the rest of the queue.
       }
+    }
 
-      if (result.status === 'duplicate') {
-        setStatusLog('Tài liệu đã tồn tại. Đã cập nhật bản ghi phân tích.');
-      } else {
-        setStatusLog('Tài liệu đã được thêm vào hàng đợi phân tích thành công.');
-      }
+    setCurrentIndex(-1);
 
-      setTimeout(() => {
-        setUploading(false);
-        onClose();
-        onUploadSuccess(uploadedDocId);
-      }, 700);
-    } catch (err: any) {
-      console.error('[UploadModal Error]:', err);
-      setError(err.message || 'Đã xảy ra lỗi khi tải lên tài liệu.');
+    const succeeded = selectedFiles.length - failures.length;
+
+    if (succeeded === 0) {
+      setError(failures.join(' | '));
       setUploading(false);
       setActiveStage(null);
+      return;
     }
+
+    if (failures.length > 0) {
+      setError(`${failures.length} tệp lỗi: ${failures.join(' | ')}`);
+      setStatusLog(`${succeeded}/${selectedFiles.length} tệp đã vào hàng đợi phân tích.`);
+    } else {
+      setStatusLog(
+        single
+          ? 'Tài liệu đã được thêm vào hàng đợi phân tích thành công.'
+          : `${succeeded} tài liệu đã được thêm vào hàng đợi phân tích.`
+      );
+    }
+
+    // A partial failure keeps the modal open so the message can be read.
+    if (failures.length > 0) {
+      setUploading(false);
+      setActiveStage(null);
+      if (lastUploadedId) onUploadSuccess(lastUploadedId);
+      return;
+    }
+
+    setTimeout(() => {
+      setUploading(false);
+      onClose();
+      if (lastUploadedId) onUploadSuccess(lastUploadedId);
+    }, 700);
   };
 
   return (
@@ -300,7 +400,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
           className={`border-2 border-dashed rounded-xl p-5 text-center cursor-pointer transition-all ${
             dragActive
               ? 'border-sky-500 bg-sky-50/50'
-              : selectedFile
+              : selectedFiles.length > 0
               ? 'border-emerald-400 bg-emerald-50/30'
               : 'border-slate-300 hover:border-sky-400 hover:bg-slate-50'
           }`}
@@ -309,24 +409,34 @@ export const UploadModal: React.FC<UploadModalProps> = ({
             ref={fileInputRef}
             type="file"
             accept=".pdf,application/pdf"
+            multiple
             onChange={handleChange}
             className="hidden"
             disabled={uploading}
           />
 
-          {selectedFile ? (
+          {selectedFiles.length > 0 ? (
             <div className="space-y-1.5">
               <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center shadow-xs">
                 <CheckCircle2 className="w-5 h-5" />
               </div>
-              <p className="text-xs font-bold text-slate-800 truncate max-w-md mx-auto">
-                {selectedFile.name}
+              <p className="text-xs font-bold text-slate-800">
+                {selectedFiles.length === 1
+                  ? selectedFiles[0].name
+                  : `${selectedFiles.length} tệp PDF đã chọn`}
               </p>
               <p className="text-[11px] text-slate-500">
-                {(selectedFile.size / 1024 / 1024).toFixed(2)} MB • Tệp PDF sẵn sàng tải lên
+                {(
+                  selectedFiles.reduce((sum, f) => sum + f.size, 0) /
+                  1024 /
+                  1024
+                ).toFixed(2)}{' '}
+                MB • sẵn sàng tải lên
               </p>
               {!uploading && (
-                <span className="text-[11px] text-sky-600 hover:underline">Nhấn để chọn tệp PDF khác</span>
+                <span className="text-[11px] text-sky-600 hover:underline">
+                  Nhấn để chọn thêm tệp
+                </span>
               )}
             </div>
           ) : (
@@ -335,14 +445,62 @@ export const UploadModal: React.FC<UploadModalProps> = ({
                 <FileText className="w-5 h-5" />
               </div>
               <p className="text-xs font-semibold text-slate-700">
-                Kéo thả tệp PDF hướng dẫn y khoa / tài liệu vào đây
+                Kéo thả một hoặc nhiều tệp PDF vào đây
               </p>
               <p className="text-[11px] text-slate-400">
-                Hỗ trợ tệp định dạng PDF tối đa 100MB
+                Hỗ trợ tệp định dạng PDF, tối đa 100MB mỗi tệp
               </p>
             </div>
           )}
         </div>
+
+        {/* Hàng đợi: mỗi tệp là một lượt tải riêng, nên trạng thái cũng riêng.
+            Một tệp lỗi không huỷ các tệp còn lại. */}
+        {selectedFiles.length > 1 && (
+          <div className="border border-slate-200 rounded-xl divide-y divide-slate-100 max-h-44 overflow-y-auto">
+            {selectedFiles.map((file, index) => {
+              const key = fileKey(file);
+              const state = fileStatus[key]?.status || 'pending';
+              return (
+                <div
+                  key={key}
+                  className={`flex items-center gap-2 px-3 py-2 text-[11px] ${
+                    index === currentIndex ? 'bg-sky-50/60' : ''
+                  }`}
+                >
+                  <span className="w-5 text-slate-400 tabular-nums">{index + 1}.</span>
+                  <span className="flex-1 truncate text-slate-700" title={file.name}>
+                    {file.name}
+                  </span>
+                  <span className="text-slate-400 tabular-nums">
+                    {(file.size / 1024 / 1024).toFixed(1)} MB
+                  </span>
+                  {state === 'uploading' && (
+                    <Loader2 className="w-3.5 h-3.5 text-sky-600 animate-spin shrink-0" />
+                  )}
+                  {state === 'done' && (
+                    <span className="text-emerald-600 font-medium shrink-0">
+                      {fileStatus[key]?.message || 'xong'}
+                    </span>
+                  )}
+                  {state === 'failed' && (
+                    <span className="text-rose-600 font-medium shrink-0">lỗi</span>
+                  )}
+                  {state === 'pending' && !uploading && (
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveFile(key)}
+                      className="text-slate-400 hover:text-rose-600 shrink-0"
+                      aria-label={`Bỏ ${file.name}`}
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         {/* Metadata Inputs Form */}
         <div className="space-y-3.5 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
@@ -544,11 +702,17 @@ export const UploadModal: React.FC<UploadModalProps> = ({
           </button>
           <button
             onClick={handleSubmit}
-            disabled={!selectedFile || uploading}
+            disabled={selectedFiles.length === 0 || uploading}
             className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-sky-600 hover:bg-sky-700 active:bg-sky-800 rounded-lg transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed shadow-xs"
           >
             {uploading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
-            {uploading ? 'Đang tải lên...' : 'Tải lên & Phân tích'}
+            {uploading
+              ? currentIndex >= 0 && selectedFiles.length > 1
+                ? `Đang tải ${currentIndex + 1}/${selectedFiles.length}...`
+                : 'Đang tải lên...'
+              : selectedFiles.length > 1
+              ? `Tải lên & Phân tích ${selectedFiles.length} tệp`
+              : 'Tải lên & Phân tích'}
           </button>
         </div>
       </div>
