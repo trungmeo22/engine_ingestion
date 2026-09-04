@@ -86,6 +86,8 @@ export interface DocumentItem {
   publication_year?: number | null;
   specialty?: string | null;
   specialties?: string[];
+  age_group?: string | null;
+  official_title?: string | null;
   topics?: string[];
   source_country?: string | null;
   country?: string | null;
@@ -118,6 +120,8 @@ export interface BackendDocument {
   publication_year?: number | null;
   specialty?: string | null;
   specialties?: string[];
+  age_group?: string | null;
+  official_title?: string | null;
   topics?: string[];
   source_country?: string | null;
   country?: string | null;
@@ -318,6 +322,19 @@ export interface DocumentMetadataPatch {
   language?: string | null;
   specialties?: string[];
   specialty?: string | null;
+  /**
+   * The patient population the guideline is written for. A different axis from
+   * specialty, which names the disease domain and says nothing about who the
+   * guideline is for. Retrieval drops a document tagged for a population the
+   * question did not ask about, so a wrong value costs more than an empty one.
+   */
+  age_group?: string | null;
+  /**
+   * The title the document states on its own opening pages, as opposed to
+   * `title`, which is the file name. Retrieval scores a document partly on
+   * this, and the Ministry's file names cannot match a Vietnamese question.
+   */
+  official_title?: string | null;
 }
 
 export interface DocumentMetadata {

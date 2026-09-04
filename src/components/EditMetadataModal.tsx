@@ -10,6 +10,8 @@ import {
   FileText,
   Stethoscope,
   ShieldCheck,
+  Baby,
+  BookMarked,
   Loader2,
   Info,
 } from 'lucide-react';
@@ -45,6 +47,17 @@ const SOURCE_AUTHORITY_OPTIONS = [
   { value: '', label: 'Chưa gắn nguồn (None)', defaultOrg: '' },
 ];
 
+// Read by retrieval, not merely displayed: a document tagged for a population
+// the question did not name is dropped from routing unless nothing else covers
+// the topic. Leaving it unset means "applies to anyone", which is the safe
+// default - a wrong tag here hides the document from half the questions.
+const AGE_GROUP_OPTIONS = [
+  { value: '', label: 'Chua xac dinh (ap dung chung)' },
+  { value: 'neonatal', label: 'So sinh (neonatal)' },
+  { value: 'pediatric', label: 'Tre em (pediatric)' },
+  { value: 'adult', label: 'Nguoi lon (adult)' },
+];
+
 const LANGUAGE_OPTIONS = [
   { value: 'vi', label: 'Tiếng Việt (vi)' },
   { value: 'en', label: 'English (en)' },
@@ -63,6 +76,8 @@ export const EditMetadataModal: React.FC<EditMetadataModalProps> = ({
   const [organization, setOrganization] = useState<string>('');
   const [publicationYear, setPublicationYear] = useState<string>('');
   const [language, setLanguage] = useState<string>('vi');
+  const [ageGroup, setAgeGroup] = useState<string>('');
+  const [officialTitle, setOfficialTitle] = useState<string>('');
   const [selectedSpecialties, setSelectedSpecialties] = useState<string[]>([]);
   const [isSaving, setIsSaving] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -75,6 +90,8 @@ export const EditMetadataModal: React.FC<EditMetadataModalProps> = ({
       setOrganization(document.organization || (document as any).issuing_organization || '');
       setPublicationYear(document.publication_year ? String(document.publication_year) : '');
       setLanguage(document.language || 'vi');
+      setAgeGroup((document as any).age_group || '');
+      setOfficialTitle((document as any).official_title || '');
       
       if (Array.isArray(document.specialties) && document.specialties.length > 0) {
         setSelectedSpecialties(document.specialties);
@@ -125,6 +142,8 @@ export const EditMetadataModal: React.FC<EditMetadataModalProps> = ({
       organization: organization.trim() ? organization.trim() : null,
       publication_year: parsedYear,
       language: language ? language.toLowerCase() : null,
+      age_group: ageGroup ? ageGroup : null,
+      official_title: officialTitle.trim() ? officialTitle.trim() : null,
       specialties: selectedSpecialties,
       specialty: selectedSpecialties.length > 0 ? selectedSpecialties[0] : null,
     };
@@ -283,6 +302,52 @@ export const EditMetadataModal: React.FC<EditMetadataModalProps> = ({
                   </option>
                 ))}
               </select>
+            </div>
+          </div>
+
+          {/* Doi tuong benh nhan & tieu de that. Ca hai di thang vao khau dinh
+              tuyen truy hoi: sai o day thi chatbot tra loi tu tai lieu khac. */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="space-y-1.5">
+              <label className="font-semibold text-slate-700 flex items-center gap-1.5">
+                <Baby className="w-3.5 h-3.5 text-sky-600" />
+                Doi tuong benh nhan (Age group)
+              </label>
+              <select
+                id="edit-age-group-select"
+                value={ageGroup}
+                onChange={(e) => setAgeGroup(e.target.value)}
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-100 outline-hidden transition-all text-xs"
+              >
+                {AGE_GROUP_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+              <p className="text-[11px] text-slate-500 leading-snug">
+                Cau hoi khong neu do tuoi se bo qua tai lieu gan nhan tre em.
+              </p>
+            </div>
+
+            <div className="space-y-1.5 sm:col-span-2">
+              <label className="font-semibold text-slate-700 flex items-center gap-1.5">
+                <BookMarked className="w-3.5 h-3.5 text-sky-600" />
+                Tieu de that cua tai lieu (Official title)
+              </label>
+              <input
+                id="edit-official-title-input"
+                type="text"
+                maxLength={500}
+                value={officialTitle}
+                onChange={(e) => setOfficialTitle(e.target.value)}
+                placeholder="VD: Huong dan chan doan va dieu tri viem phoi mac phai cong dong o nguoi lon"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-100 outline-hidden transition-all text-xs"
+              />
+              <p className="text-[11px] text-slate-500 leading-snug">
+                Bo trong thi he thong dung ten file, ma ten file thuong viet tat
+                khong dau nen cau hoi tieng Viet khong khop duoc.
+              </p>
             </div>
           </div>
 
