@@ -187,11 +187,37 @@ export async function updateDocumentMetadata(documentId: string, patch: Document
   return normalizeDocumentItem(data, documentId);
 }
 
+export const MAX_UPLOAD_BYTES = 100 * 1024 * 1024;
+
+// MOT NOI DUY NHAT giu luat nay. Truoc do cung mot luat duoc viet lai o BA
+// cho - UploadModal, ham nay, va api/upload-ticket.ts - nen noi .docx o mot
+// cho khong lam tep .docx len duoc: hai cho kia van chan.
+//
+// Danh sach phai khop `allowed` cua POST /documents/upload tren may chu:
+// {".pdf", ".docx", ".txt"}. `.doc` KHONG nam trong do - parser tu choi thang
+// mot .doc nhi phan ("a binary .doc, which this pipeline cannot read") va
+// container khong co soffice/libreoffice de chuyen.
+export const DUOI_NHAN = ['.pdf', '.docx'];
+
+export function rejectFileReason(file: File): string | null {
+  const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+
+  if (ext === '.doc') {
+    return 'định dạng .doc cũ - hãy mở bằng Word và Lưu thành .docx';
+  }
+  if (!DUOI_NHAN.includes(ext)) {
+    return 'chỉ hỗ trợ PDF và Word (.docx)';
+  }
+  if (file.size > MAX_UPLOAD_BYTES) {
+    return 'vượt quá 100MB';
+  }
+  return null;
+}
+
 export async function uploadDocument(file: File, metadata?: DocumentUploadMetadata): Promise<UploadDocumentResponse> {
   if (!file) throw new Error('Please select a file to upload.');
-  const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
-  if (ext !== '.pdf' && file.type !== 'application/pdf') throw new Error('Only PDF documents are supported.');
-  if (file.size > 100 * 1024 * 1024) throw new Error('File size exceeds the 100MB limit.');
+  const lyDo = rejectFileReason(file);
+  if (lyDo) throw new Error(lyDo);
 
   let response: Response;
 

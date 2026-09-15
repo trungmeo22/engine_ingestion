@@ -75,12 +75,32 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     const fileName = String(body?.file_name || '').trim();
     const fileSize = Number(body?.file_size || 0);
 
-    if (!fileName.toLowerCase().endsWith('.pdf')) {
+    // Cong chan THU HAI, va la cong that. `UploadModal` kiem cung danh sach
+    // nay o trinh duyet, nhung ve upload cap o day cho phep goi THANG len may
+    // chu, nen no phai tu kiem lay chu khong duoc tin giao dien.
+    //
+    // Danh sach phai khop `allowed` cua POST /documents/upload tren may chu:
+    // {".pdf", ".docx", ".txt"}. `.doc` KHONG nam trong do - parser tu choi
+    // thang mot .doc nhi phan va container khong co soffice de chuyen.
+    const lowerName = fileName.toLowerCase();
+
+    if (lowerName.endsWith('.doc')) {
       res.statusCode = 400;
       res.setHeader('Content-Type', 'application/json; charset=utf-8');
       res.end(JSON.stringify({
         error: 'INVALID_FILE',
-        message: 'Only PDF documents are supported.',
+        message:
+          'Định dạng .doc cũ chưa đọc được - hãy mở bằng Word và Lưu thành .docx.',
+      }));
+      return;
+    }
+
+    if (!lowerName.endsWith('.pdf') && !lowerName.endsWith('.docx')) {
+      res.statusCode = 400;
+      res.setHeader('Content-Type', 'application/json; charset=utf-8');
+      res.end(JSON.stringify({
+        error: 'INVALID_FILE',
+        message: 'Chỉ hỗ trợ PDF và Word (.docx).',
       }));
       return;
     }
@@ -90,7 +110,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
       res.setHeader('Content-Type', 'application/json; charset=utf-8');
       res.end(JSON.stringify({
         error: 'INVALID_FILE_SIZE',
-        message: 'PDF size must be between 1 byte and 100 MB.',
+        message: 'Dung lượng tệp phải trong khoảng 1 byte đến 100 MB.',
       }));
       return;
     }

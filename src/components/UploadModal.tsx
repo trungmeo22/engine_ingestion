@@ -17,6 +17,7 @@ import {
   uploadDocument,
   pollJobUntilFinished,
   getSourceAuthorities,
+  rejectFileReason,
 } from '../lib/knowledgeApi';
 import { unmarkDeletedDocId } from '../lib/api';
 import { SourceAuthority } from '../types';
@@ -54,30 +55,10 @@ type FileState = { status: 'pending' | 'uploading' | 'done' | 'failed'; message?
 // Same name and size twice is the same file picked twice, not two documents.
 const fileKey = (file: File) => file.name + ':' + file.size;
 
-const MAX_SIZE_BYTES = 100 * 1024 * 1024; // 100MB, the server's own limit
-
-// Duoi may chu nhan: xem `allowed` trong POST /documents/upload.
-//
-// `.doc` KHONG nam trong do, va day khong phai chuyen cua giao dien: parser
-// tu choi thang mot .doc nhi phan ("a binary .doc, which this pipeline cannot
-// read"), va container khong co soffice/libreoffice/antiword de chuyen. Chan
-// o day de nguoi dung biet ngay, kem viec phai lam, thay vi de tep len roi
-// hong o buoc ingest.
-const DUOI_NHAN = ['.pdf', '.docx'];
-
-function rejectReason(file: File): string | null {
-  const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
-  if (ext === '.doc') {
-    return 'định dạng .doc cũ - hãy mở bằng Word và Lưu thành .docx';
-  }
-  if (!DUOI_NHAN.includes(ext)) {
-    return 'chỉ hỗ trợ PDF và Word (.docx)';
-  }
-  if (file.size > MAX_SIZE_BYTES) {
-    return 'vượt quá 100MB';
-  }
-  return null;
-}
+// Luat "duoi nao duoc nhan" nam o `knowledgeApi.rejectFileReason` - MOT noi
+// duy nhat. Truoc day no duoc viet lai o day, trong `uploadDocument`, va
+// trong `api/upload-ticket.ts`; noi .docx o mot cho thi hai cho kia van chan.
+const rejectReason = rejectFileReason;
 
 export const UploadModal: React.FC<UploadModalProps> = ({
   isOpen,
