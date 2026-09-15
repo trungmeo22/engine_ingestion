@@ -56,10 +56,22 @@ const fileKey = (file: File) => file.name + ':' + file.size;
 
 const MAX_SIZE_BYTES = 100 * 1024 * 1024; // 100MB, the server's own limit
 
+// Duoi may chu nhan: xem `allowed` trong POST /documents/upload.
+//
+// `.doc` KHONG nam trong do, va day khong phai chuyen cua giao dien: parser
+// tu choi thang mot .doc nhi phan ("a binary .doc, which this pipeline cannot
+// read"), va container khong co soffice/libreoffice/antiword de chuyen. Chan
+// o day de nguoi dung biet ngay, kem viec phai lam, thay vi de tep len roi
+// hong o buoc ingest.
+const DUOI_NHAN = ['.pdf', '.docx'];
+
 function rejectReason(file: File): string | null {
   const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
-  if (ext !== '.pdf' && file.type !== 'application/pdf') {
-    return 'chỉ hỗ trợ PDF';
+  if (ext === '.doc') {
+    return 'định dạng .doc cũ - hãy mở bằng Word và Lưu thành .docx';
+  }
+  if (!DUOI_NHAN.includes(ext)) {
+    return 'chỉ hỗ trợ PDF và Word (.docx)';
   }
   if (file.size > MAX_SIZE_BYTES) {
     return 'vượt quá 100MB';
@@ -222,7 +234,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
       // One file: its name is a reasonable title to offer. Several: each
       // document keeps its own name, and a shared title would be wrong for
       // all but one of them.
-      const cleanName = file.name.replace(/\.pdf$/i, '').replace(/[_-]/g, ' ');
+      const cleanName = file.name.replace(/\.(pdf|docx)$/i, '').replace(/[_-]/g, ' ');
       setTitle(cleanName);
     }
   };
@@ -270,7 +282,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
       setFileStatus((prev) => ({ ...prev, [key]: { status: 'uploading' } }));
       setStatusLog(
         single
-          ? 'Đang tải tệp PDF lên máy chủ qua multipart/form-data...'
+          ? 'Đang tải tệp lên máy chủ qua multipart/form-data...'
           : `Đang tải tệp ${index + 1}/${selectedFiles.length}: ${file.name}`
       );
 
@@ -408,7 +420,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
           <input
             ref={fileInputRef}
             type="file"
-            accept=".pdf,application/pdf"
+            accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             multiple
             onChange={handleChange}
             className="hidden"
@@ -423,7 +435,7 @@ export const UploadModal: React.FC<UploadModalProps> = ({
               <p className="text-xs font-bold text-slate-800">
                 {selectedFiles.length === 1
                   ? selectedFiles[0].name
-                  : `${selectedFiles.length} tệp PDF đã chọn`}
+                  : `${selectedFiles.length} tệp đã chọn`}
               </p>
               <p className="text-[11px] text-slate-500">
                 {(
@@ -445,10 +457,10 @@ export const UploadModal: React.FC<UploadModalProps> = ({
                 <FileText className="w-5 h-5" />
               </div>
               <p className="text-xs font-semibold text-slate-700">
-                Kéo thả một hoặc nhiều tệp PDF vào đây
+                Kéo thả một hoặc nhiều tệp PDF hoặc Word (.docx) vào đây
               </p>
               <p className="text-[11px] text-slate-400">
-                Hỗ trợ tệp định dạng PDF, tối đa 100MB mỗi tệp
+                Hỗ trợ PDF và Word (.docx), tối đa 100MB mỗi tệp
               </p>
             </div>
           )}
